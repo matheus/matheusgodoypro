@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Godoy - Desenvolvedor e Inovador Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Variáveis de Cor (Paleta Refinada) --- */
+        :root {
+            --bg-start: #2a0a4a; /* Roxo mais escuro */
+            --bg-end: #0b0f29;   /* Azul mais profundo */
+            --line-color: rgba(64, 224, 208, 0.15); /* Turquesa com baixa opacidade */
+            --accent-color: #40e0d0; /* Turquesa para detalhes */
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0b0;
+        }
+
+        /* --- Configurações Globais --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Inter', sans-serif; /* Fonte mais neutra e moderna */
+            background-color: var(--bg-end);
+            color: var(--text-primary);
+            overflow-x: hidden; /* Previne scroll horizontal */
+        }
+
+        /* --- Container Principal com Fundo Gradiente --- */
+        .main-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Organiza o conteúdo em coluna */
+            width: 100%;
+            min-height: 100vh; /* Garante que o fundo ocupe pelo menos a tela inteira */
+            padding: 4rem 2rem; /* Adiciona espaçamento vertical e horizontal */
+            background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 80%);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- Fundo com Linhas de Conexão (SVG) --- */
+        .background-lines {
+            position: fixed; /* Fixo para não rolar com a página */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+            mix-blend-mode: screen; /* Efeito de mistura para integrar melhor ao fundo */
+        }
+
+        /* --- Conteúdo Principal --- */
+        .content {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 6vw, 4rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -1.5px;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        p {
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* --- Botão CTA (Estilo Minimalista) --- */
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-primary);
+            background-color: transparent;
+            border: 1px solid rgba(224, 224, 224, 0.3);
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--bg-end);
+        }
+        
+        /* --- Animação de Entrada --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* --- Seção: O que entrego --- */
+        .delivery-section {
+            position: relative;
+            z-index: 2;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(224, 224, 224, 0.1);
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out 0.5s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .delivery-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .delivery-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 2rem;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .delivery-section li {
+            font-weight: 300;
+            color: var(--text-secondary);
+            padding: 0.8rem 0 0.8rem 2.5rem;
+            position: relative;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .delivery-section li:first-child {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .delivery-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .delivery-section .delivery-intro,
+        .delivery-section .delivery-tech {
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        
+        .delivery-section .delivery-intro {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .delivery-section .delivery-tech {
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 6px;
+        }
+
+        /* --- NOVA SEÇÃO: DEPOIMENTOS --- */
+        .testimonials-section {
+            position: relative;
+            z-index: 2;
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(224, 224, 224, 0.1);
+            width: 100%;
+            max-width: 900px; /* Aumentado para acomodar os cards */
+            text-align: center;
+            animation: fadeIn 1.5s ease-out 0.8s; /* Delay na animação */
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+
+        .testimonials-section h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+        }
+
+        .testimonial-card {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            flex: 1 1 280px; /* Flex-grow, flex-shrink, flex-basis */
+            max-width: 320px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card blockquote {
+            margin: 0 0 1.5rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1; /* Faz a citação ocupar o espaço disponível */
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .testimonial-card cite {
+            font-style: normal;
+            text-align: right;
+        }
+
+        .testimonial-card cite strong {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .testimonial-card cite span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <svg class="background-lines" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="var(--line-color)" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+
+        <main class="content">
+            <h1>Matheus Godoy</h1>
+            <p>
+                Construo soluções web simples para problemas reais. Menos complexidade, mais resultados
+            </p>
+            <a href="mailto:seu-email-aqui@exemplo.com?subject=Contato Profissional" class="cta-button">
+                Entre em Contato
+            </a>
+        </main>
+
+        <section class="delivery-section">
+            <h2>O que entrego</h2>
+            <p class="delivery-intro">Desenvolvo sistemas web completos que:</p>
+            <ul>
+                <li>Reduzem custos da empresa</li>
+                <li>Aceleram o tempo de entrega de serviços</li>
+                <li>Aumentam as vendas</li>
+            </ul>
+            <p class="delivery-tech">
+                Para isso uso inteligência artificial com automações e assistentes de atendimento e prospecção de clientes.
+            </p>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>O que dizem os clientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <blockquote>"O sistema que o Matheus desenvolveu não só otimizou nosso fluxo de trabalho, como também gerou uma economia de quase 30% em custos operacionais. Um verdadeiro divisor de águas."</blockquote>
+                    <cite>
+                        <strong>Ana Oliveira</strong>
+                        <span>Diretora de Operações, InovaLog</span>
+                    </cite>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Estávamos presos em processos manuais. Com a automação e o assistente de IA, nosso tempo de resposta ao cliente foi de horas para minutos. A eficiência da nossa equipe triplicou."</blockquote>
+                    <cite>
+                        <strong>Carlos Mendes</strong>
+                        <span>CEO, Agiliza Tech</span>
+                    </cite>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"A ferramenta de prospecção que ele criou para nós é incrível. Aumentamos nossos leads qualificados em 50% no primeiro trimestre. O impacto nas vendas foi imediato e expressivo."</blockquote>
+                    <cite>
+                        <strong>Juliana Costa</strong>
+                        <span>Gerente de Vendas, Conecta CRM</span>
+                    </cite>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
