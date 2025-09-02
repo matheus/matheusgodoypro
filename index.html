@@ -1,227 +1,181 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Godoy - Desenvolvedor e Inovador Digital</title>
+    
+    <!-- Título otimizado para SEO -->
+    <title>Matheus Godoy | Micro-SaaS e Automações com Inteligência Artificial</title>
+
+    <!-- Meta Tags Essenciais para SEO -->
+    <meta name="description" content="Desenvolvo soluções Micro-SaaS e automações com inteligência artificial para resolver problemas reais. Conheça meus projetos e entre em contato.">
+    <meta name="keywords" content="matheus godoy, micro-saas, inteligência artificial, automações, saas, desenvolvimento web, soluções web, metawin, vitad, bitsimple">
+    <meta name="author" content="Matheus Godoy">
+    <link rel="canonical" href="https://matheusgodoy.pro">
+
+    <!-- Open Graph Tags (para compartilhamento em redes sociais como Facebook, LinkedIn) -->
+    <meta property="og:title" content="Matheus Godoy | Micro-SaaS e Automações com Inteligência Artificial">
+    <meta property="og:description" content="Desenvolvo soluções Micro-SaaS e automações com inteligência artificial para resolver problemas reais.">
+    <meta property="og:url" content="https://matheusgodoy.pro">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://matheusgodoy.pro/profile.jpg">
+    <meta property="og:image:alt" content="Foto de Perfil de Matheus Godoy">
+
+    <!-- Twitter Card Tags (para compartilhamento no X/Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matheus Godoy | Micro-SaaS e Automações com Inteligência Artificial">
+    <meta name="twitter:description" content="Desenvolvo soluções Micro-SaaS e automações com inteligência artificial para resolver problemas reais.">
+    <meta name="twitter:image" content="https://matheusgodoy.pro/profile.jpg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- Variáveis de Cor (Paleta Refinada) --- */
-        :root {
-            --bg-start: #2a0a4a; /* Roxo mais escuro */
-            --bg-end: #0b0f29;   /* Azul mais profundo */
-            --line-color: rgba(64, 224, 208, 0.15); /* Turquesa com baixa opacidade */
-            --accent-color: #40e0d0; /* Turquesa para detalhes */
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0b0;
+        /* Define a fonte Inter como padrão e um fundo suave */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
         }
 
-        /* --- Configurações Globais --- */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            font-family: 'Inter', sans-serif; /* Fonte mais neutra e moderna */
-            background-color: var(--bg-end);
-            color: var(--text-primary);
-            overflow-x: hidden; /* Previne scroll horizontal */
+        /* Efeito de transição suave para os botões e links */
+        .transition-all {
+            transition: all 0.3s ease-in-out;
         }
-
-        /* --- Container Principal com Fundo Gradiente --- */
-        .main-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; /* Organiza o conteúdo em coluna */
-            width: 100%;
-            min-height: 100vh; /* Garante que o fundo ocupe pelo menos a tela inteira */
-            padding: 4rem 2rem; /* Adiciona espaçamento vertical e horizontal */
-            background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 80%);
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        /* --- Fundo com Linhas de Conexão (SVG) --- */
-        .background-lines {
-            position: fixed; /* Fixo para não rolar com a página */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.5;
-            mix-blend-mode: screen; /* Efeito de mistura para integrar melhor ao fundo */
-        }
-
-        /* --- Conteúdo Principal --- */
-        .content {
-            position: relative;
-            text-align: center;
-            width: 100%;
-            max-width: 700px;
-            z-index: 2;
-            animation: fadeIn 1.5s ease-out;
-            animation-fill-mode: forwards;
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 6vw, 4rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -1.5px;
-            color: #ffffff;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-        }
-
-        p {
-            font-size: clamp(1rem, 2.5vw, 1.15rem);
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            max-width: 550px;
-            margin: 0 auto 2.5rem;
-        }
-
-        /* --- Botão CTA (Estilo Minimalista) --- */
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
-            font-size: 0.9rem;
-            font-weight: 400;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-primary);
-            background-color: transparent;
-            border: 1px solid rgba(224, 224, 224, 0.3);
-            border-radius: 6px;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--bg-end);
-        }
-        
-        /* --- Animação de Entrada --- */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* --- Seção: O que entrego --- */
-        .delivery-section {
-            position: relative;
-            z-index: 2;
-            margin-top: 5rem;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(224, 224, 224, 0.1);
-            width: 100%;
-            max-width: 700px;
-            text-align: center;
-            animation: fadeIn 1.5s ease-out 0.5s;
-            animation-fill-mode: forwards;
-            opacity: 0;
-        }
-
-        .delivery-section h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .delivery-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 auto 2rem;
-            text-align: left;
-            max-width: 500px;
-        }
-
-        .delivery-section li {
-            font-weight: 300;
-            color: var(--text-secondary);
-            padding: 0.8rem 0 0.8rem 2.5rem;
-            position: relative;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .delivery-section li:first-child {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .delivery-section li::before {
-            content: '✓';
-            position: absolute;
-            left: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .delivery-section .delivery-intro,
-        .delivery-section .delivery-tech {
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        
-        .delivery-section .delivery-intro {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .delivery-section .delivery-tech {
-            font-size: 0.9rem;
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: rgba(0,0,0,0.2);
-            border-radius: 6px;
-        }
-
     </style>
+
+    <!-- JSON-LD Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Matheus Godoy",
+      "url": "https://matheusgodoy.pro",
+      "image": "https://matheusgodoy.pro/profile.jpg",
+      "jobTitle": "Desenvolvedor de Soluções Web e Micro-SaaS",
+      "description": "Crio soluções Micro-SaaS e automações com inteligência artificial para resolver problemas reais.",
+      "sameAs": [
+        "https://www.youtube.com/@matheusgodoy",
+        "https://matheusgodoypro.substack.com",
+        "https://x.com/matheusgodoypro"
+      ]
+    }
+    </script>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
 
-    <div class="main-container">
-        
-        <svg class="background-lines" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="var(--line-color)" stroke-width="0.5"/>
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+    <div class="w-full max-w-2xl mx-auto space-y-16">
 
-        <main class="content">
-            <h1>Matheus Godoy</h1>
-            <p>
-                Construo soluções web simples para problemas reais. Menos complexidade, mais resultados
+        <!-- 1. Seção Hero -->
+        <header class="text-center">
+            <!-- Foto de Perfil -->
+            <div class="mb-6">
+                <img class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md mx-auto" src="profile.jpg" alt="Foto de Perfil de Matheus Godoy, desenvolvedor de Micro-SaaS com Inteligência Artificial" onerror="this.style.display='none'">
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl font-black text-gray-800 tracking-tight">
+                MATHEUS GODOY
+            </h1>
+            <p class="mt-4 max-w-xl mx-auto text-lg font-medium text-gray-600">
+                CRIO SOLUÇÕES WEB SIMPLES QUE RESOLVEM PROBLEMAS REAIS. MENOS COMPLEXIDADE = MAIS RESULTADOS.
             </p>
-            <a href="https://forms.gle/bFWFCGHw3fDkoYUs5" target="_blank" rel="" class="cta-button">
-                Entre em Contato
-            </a>
+            
+            <!-- Ícones de Redes Sociais -->
+            <div class="mt-8 flex justify-center space-x-6">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@matheusgodoy" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 transition-all">
+                    <span class="sr-only">YouTube</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 0 1-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 0 1 1.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418ZM9.5 15.5V8.5l6 3.5-6 3.5Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <!-- Substack -->
+                <a href="https://matheusgodoypro.substack.com" target="_blank" rel="noopener noreferrer" class="text-orange-500 hover:text-orange-600 transition-all">
+                    <span class="sr-only">Substack</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                </a>
+                <!-- X (Twitter) -->
+                <a href="https://x.com/matheusgodoypro" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-all">
+                    <span class="sr-only">X</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- 2. Seção de Soluções -->
+        <main>
+            <h2 class="text-center text-sm font-bold text-gray-500 uppercase tracking-widest mb-8">
+                Soluções
+            </h2>
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Solução: BitSimple -->
+                <a href="https://bitsimple.netlify.app" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-500 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-5">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-50 flex items-center justify-center rounded-lg group-hover:bg-blue-100 transition-all">
+                                <!-- Ícone: Gráfico de Linha (Trading) -->
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">BitSimple</h3>
+                            <p class="text-gray-600 mt-1">Indicador de melhor momento para compra e venda de bitcoin.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Solução: VitaD -->
+                <a href="https://vitad.online" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg hover:orange-500 hover:border-orange-500 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-5">
+                        <div class="flex-shrink-0">
+                             <div class="w-12 h-12 bg-orange-50 flex items-center justify-center rounded-lg group-hover:bg-orange-100 transition-all">
+                                <!-- Ícone: Sol (Vitamina D) -->
+                                <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">VitaD</h3>
+                            <p class="text-gray-600 mt-1">Calculadora de absorção de vitamina D pela exposição ao sol.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Solução: Metawin -->
+                <a href="https://metawinfut.libertax.com.br" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg hover:border-purple-500 hover:-translate-y-1 transition-all">
+                    <div class="flex items-center space-x-5">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-purple-50 flex items-center justify-center rounded-lg group-hover:bg-purple-100 transition-all">
+                                <!-- Ícone: Cérebro (IA) -->
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6a9 9 0 01-9 9H3a9 9 0 0118 0h-3a9 9 0 01-9-9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 14a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Metawin</h3>
+                            <p class="text-gray-600 mt-1">IA especializada em daytrade no mini índice Ibovespa.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </main>
 
+        <!-- 3. Seção de Contato -->
+        <footer class="text-center">
+            <a href="https://forms.gle/BUjYhb3Geh81cQHq5" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-900 text-white font-bold py-4 px-10 rounded-lg shadow-md hover:bg-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all">
+                VAMOS CONVERSAR
+            </a>
+        </footer>
 
     </div>
 
 </body>
 </html>
+
