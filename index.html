@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Godoy | Automação</title>
     
-    <!-- Título otimizado para SEO -->
-    <title>Matheus Godoy | Micro-SaaS & AI-Powered Automations</title>
-
     <!-- Meta Tags Essenciais para SEO -->
     <meta name="description" content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems. Discover my projects and get in touch.">
     <meta name="keywords" content="matheus godoy, micro-saas, artificial intelligence, automations, saas, web development, web solutions, metawin, vitad, bitsimple, kakeibo">
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
-
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -22,43 +26,224 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Open Graph Tags (for social media sharing) -->
-    <meta property="og:title" content="Matheus Godoy | Micro-SaaS & AI-Powered Automations">
-    <meta property="og:description" content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems.">
-    <meta property="og:url" content="https://matheusgodoy.pro">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://matheusgodoy.pro/assets/profile.jpg">
-    <meta property="og:image:alt" content="Matheus Godoy Profile Picture">
-
-    <!-- Twitter Card Tags (for X/Twitter sharing) -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Matheus Godoy | Micro-SaaS & AI-Powered Automations">
-    <meta name="twitter:description" content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems.">
-    <meta name="twitter:image" content="https://matheusgodoy.pro/assets/profile.jpg">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
     <style>
-        /* Define a fonte Inter como padrão e um fundo suave */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+        :root {
+            /* Cores extraídas da referência */
+            --bg-color: #121212;        /* Preto suave/Carvão */
+            --text-white: #ffffff;
+            --accent-teal: #4FD1C5;     /* Teal vibrante da imagem */
+            --accent-hover: #38B2AC;
+            
+            --input-border: #333333;
+            --input-focus: #4FD1C5;
         }
 
-        /* Efeito de transição suave para os botões e links */
-        .transition-all {
-            transition: all 0.3s ease-in-out;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* --- Header --- */
+        .top-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.3em;
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .avatar-container {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Filtro p&b leve para combinar com o dark mode */
+            filter: grayscale(20%) contrast(1.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        
+        /* Anel decorativo sutil atrás da foto */
+        .avatar-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid rgba(79, 209, 197, 0.2);
+            border-radius: 50%;
+            z-index: -1;
+            animation: spin 20s linear infinite;
+        }
+        
+        .avatar-ring::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-teal);
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- Tipografia Bold --- */
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4rem;
+            max-width: 90%;
+        }
+
+        /* --- Formulário Minimalista --- */
+        .form-wrapper {
+            width: 100%;
+            max-width: 450px;
+            margin-top: 1rem;
+        }
+        
+        .minimal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+            text-align: left;
+        }
+
+        .input-field {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--input-border);
+            padding: 0.8rem 0;
+            color: var(--text-white);
+            font-size: 1.1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            border-radius: 0; /* Remove arredondamento padrão */
+        }
+
+        .input-field::placeholder {
+            color: #c0bfbf;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-bottom-color: var(--accent-teal);
+        }
+
+        /* Estilizando o select para parecer input de texto */
+        select.input-field {
+            cursor: pointer;
+            appearance: none;
+            color: var(--text-white);
+        }
+        
+        select.input-field option {
+            background-color: #1a1a1a;
+            color: var(--text-white);
+            padding: 10px;
+        }
+
+        /* Botão CTA */
+        .btn-submit {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1.2rem;
+            background-color: var(--accent-teal);
+            color: #000; /* Contraste preto no teal */
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* Forma de pílula achatada */
+            border-radius: 4px; 
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(79, 209, 197, 0.4);
+        }
+
+        /* Mensagens */
+        .feedback {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: none;
+        }
+        .feedback.success { color: var(--accent-teal); }
+        .feedback.error { color: #ff6b6b; }
+
+        /* --- Responsividade --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 0.95rem; }
+            .container { padding: 2rem 1.2rem; }
         }
     </style>
 
-    <!-- JSON-LD Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -86,71 +271,122 @@
       gtag('config', 'G-4784RYMPD1');
     </script>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+<body>
 
-    <div class="w-full max-w-2xl mx-auto space-y-16">
+    <div class="container">
+        <!-- Nome no topo estilo "Marca" -->
+        <div class="top-name">Matheus Godoy</div>
 
-        <!-- 1. Seção Hero -->
-        <header class="text-center">
-            <!-- Foto de Perfil -->
-            <div class="mb-8">
-                <img class="w-36 h-36 rounded-full object-cover border-4 border-white shadow-md mx-auto" src="assets/profile.jpg" alt="Matheus Godoy Profile Picture, Micro-SaaS Developer with Artificial Intelligence" onerror="this.style.display='none'">
+        <!-- Foto de Perfil -->
+        <div class="avatar-container">
+            <div class="avatar-ring"></div>
+            <img src="assets/profile.jpg" alt="Matheus Godoy" class="avatar">
+        </div>
+
+        <!-- Títulos Impactantes -->
+        <h1>Simplificando o Caos com<br>Automações Inteligentes</h1>
+        
+        <p class="subtitle">
+            Chega de tarefas manuais. Eu automatizo o<br>
+            atendimento e os processos da sua empresa.
+        </p>
+
+        <!-- Formulário Clean -->
+        <div class="form-wrapper">
+            <form id="contactForm" class="minimal-form">
+                
+                <div class="input-group">
+                    <input type="text" id="nome" class="input-field" placeholder="Seu Nome" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="empresa" class="input-field" placeholder="Sua Empresa" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" class="input-field" placeholder="E-mail Corporativo" required>
+                </div>
+
+                <div class="input-group">
+                    <select id="servico" class="input-field" required>
+                        <option value="" disabled selected>Como posso ajudar?</option>
+                        <option value="formulario">Formulário de contato com IA</option>
+                        <option value="outro">Outros</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="descricao" class="input-field" placeholder="Detalhes do Projeto" required>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Enviar Solicitação
+                </button>
+            </form>
+
+            <!-- Feedback -->
+            <div id="successMsg" class="feedback success">
+                RESPOSTA ENVIADA PARA SEU E-MAIL.
             </div>
-            
-            <a href="/" class="no-underline text-inherit">
-                <h1 class="text-3xl sm:text-4xl font-black text-gray-800 tracking-tight">
-                    SIMPLIFICANDO O CAOS
-                    COM AUTOMAÇÕES INTELIGENTES
-                </h1>
-            </a>
-            <p class="mt-4 max-w-xl mx-auto text-lg text-gray-600">
-                <span class="block mt-1">Chega de tarefas manuais. Automatize o atendimento e os processos da sua empresa com a minha ajuda.</span>
-            </p>
-            <br>
-            <p class="mb-8">
-                <a href="https://n8n.libertax.com.br/form/matheusgodoy-contato" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-900 text-white font-bold py-4 px-10 rounded-lg shadow-md hover:bg-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all">
-                VAMOS CONVERSAR
-                </a>
-            </p>
-            <!-- Ícones de Redes Sociais -->
-            <div class="mt-8 flex justify-center space-x-6">
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@matheusgodoy" target="_blank" rel="noopener noreferrer" class="text-red-600 hover:text-red-700 transition-all">
-                    <span class="sr-only">YouTube</span>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 0 1-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 0 1-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 0 1 1.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418ZM9.5 15.5V8.5l6 3.5-6 3.5Z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-                <!-- Substack -->
-                <a href="https://matheusgodoypro.substack.com" target="_blank" rel="noopener noreferrer" class="text-orange-500 hover:text-orange-600 transition-all">
-                    <span class="sr-only">Substack</span>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                </a>
-                <!-- X (Twitter) -->
-                <a href="https://x.com/matheusgodoypro" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-all">
-                    <span class="sr-only">X</span>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                </a>
+            <div id="errorMsg" class="feedback error">
+                ERRO AO ENVIAR. TENTE NOVAMENTE.
             </div>
-        </header>
-
-        <!-- 2. Seção de Soluções -->
-        <main>
-
-        </main>
-
-        <!-- 3. Seção de Contato -->
-        <footer class="text-center">
-            <p class="text-gray-600">
-                &copy; 2025 Matheus Godoy. Todos os direitos reservados.
-            </p>
-        </footer>
+        </div>
 
     </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const btn = this.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            btn.innerText = 'ENVIANDO...';
+            btn.style.opacity = '0.7';
+            btn.disabled = true;
+
+            const formData = {
+                nome: document.getElementById('nome').value,
+                empresa: document.getElementById('empresa').value,
+                email: document.getElementById('email').value,
+                servico: document.getElementById('servico').value,
+                descricao: document.getElementById('descricao').value
+            };
+
+            fetch('https://hook.us2.make.com/xuch8shzch9sgoofpfaxbhgofq8px6e1', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    this.reset();
+                    successMsg.style.display = 'block';
+                    setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
+                } else {
+                    throw new Error('Erro no envio');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                errorMsg.style.display = 'block';
+                setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
+            })
+            .finally(() => {
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
