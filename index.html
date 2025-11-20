@@ -341,20 +341,97 @@
             /* Glow Coral */
         }
 
-        /* Mensagens */
+        /* Mensagens de Feedback (Novo Design) */
         .feedback {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
             display: none;
+            /* Controlado pelo JS */
+            animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .feedback.success {
+            background: linear-gradient(135deg, rgba(0, 143, 187, 0.15), rgba(0, 143, 187, 0.05));
+            border: 1px solid var(--accent-teal);
+            box-shadow: 0 10px 40px -10px rgba(0, 143, 187, 0.3);
+        }
+
+        .feedback.success::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-teal);
+        }
+
+        /* Ícone Animado */
+        .feedback-icon {
+            font-size: 3rem;
             color: var(--accent-teal);
+            margin-bottom: 1rem;
+            display: block;
+            animation: iconPulse 2s infinite;
+        }
+
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7));
+            }
+
+            70% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0));
+            }
+        }
+
+        .feedback-title {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .feedback-text {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.5;
         }
 
         .feedback.error {
-            color: #ff6b6b;
+            background: rgba(234, 75, 113, 0.1);
+            border: 1px solid var(--accent-coral);
+            color: var(--accent-coral);
+            font-family: 'Oswald', sans-serif;
         }
 
         /* --- Responsividade --- */
@@ -484,10 +561,13 @@
                 </button>
             </form>
 
-            <!-- Feedback -->
+            <!-- Feedback (Novo Layout) -->
             <div id="successMsg" class="feedback success">
-                RESPOSTA ENVIADA PARA SEU E-MAIL.
+                <i class="fas fa-check-circle feedback-icon"></i>
+                <span class="feedback-title">Solicitação Recebida!</span>
+                <span class="feedback-text">Verifique seu e-mail agora mesmo para os próximos passos.</span>
             </div>
+
             <div id="errorMsg" class="feedback error">
                 ERRO AO ENVIAR. TENTE NOVAMENTE.
             </div>
