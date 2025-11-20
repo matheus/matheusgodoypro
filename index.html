@@ -38,14 +38,15 @@
             /* Deep Navy - Profundidade Fria */
             --text-white: #ffffff;
 
-            --accent-teal: #4FD1C5;
-            /* IA - Clareza/Intelecto */
+            --accent-teal: #008FBB;
+            /* NOVO AZUL (Substituindo o Teal) */
             --accent-coral: #EA4B71;
             /* n8n/Automação - Ação/Energia */
 
             --input-border: #1f2933;
             /* Navy mais claro para bordas */
-            --input-focus: #4FD1C5;
+            --input-focus: #008FBB;
+            /* Foco com o novo azul */
         }
 
         * {
@@ -102,7 +103,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
-        /* Anel decorativo com gradiente Teal -> Coral */
+        /* Anel decorativo com gradiente Novo Azul -> Coral */
         .avatar-ring {
             position: absolute;
             top: -10px;
@@ -113,13 +114,14 @@
             /* Truque para borda gradiente ao girar */
             border-top: 1px solid var(--accent-teal);
             border-bottom: 1px solid var(--accent-coral);
-            border-left: 1px solid rgba(79, 209, 197, 0.15);
+            border-left: 1px solid rgba(0, 143, 187, 0.15);
+            /* Ajustado para RGB do #008FBB */
             border-right: 1px solid rgba(234, 75, 113, 0.15);
             z-index: -1;
             animation: spin 15s linear infinite;
         }
 
-        /* Ponto orbital Teal (IA) */
+        /* Ponto orbital Azul (IA) */
         .avatar-ring::after {
             content: '';
             position: absolute;
@@ -281,8 +283,10 @@
         /* Estado Selecionado (Checked) */
         .service-card input[type="checkbox"]:checked+.card-content {
             border-color: var(--accent-teal);
-            background: rgba(79, 209, 197, 0.05);
-            box-shadow: 0 0 20px rgba(79, 209, 197, 0.05);
+            background: rgba(0, 143, 187, 0.05);
+            /* Ajustado para RGB do #008FBB */
+            box-shadow: 0 0 20px rgba(0, 143, 187, 0.05);
+            /* Ajustado para RGB do #008FBB */
         }
 
         .service-card input[type="checkbox"]:checked+.card-content .card-title {
