@@ -147,7 +147,7 @@
         /* --- Formulário Minimalista --- */
         .form-wrapper {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px; /* Aumentei um pouco para caber bem os cards */
             margin-top: 1rem;
         }
         
@@ -172,7 +172,7 @@
             font-size: 1.1rem;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
-            border-radius: 0; /* Remove arredondamento padrão */
+            border-radius: 0; 
         }
 
         .input-field::placeholder {
@@ -188,22 +188,99 @@
             border-bottom-color: var(--accent-teal);
         }
 
-        /* Estilizando o select para parecer input de texto */
-        select.input-field {
+        /* --- Novos Checkboxes Estilizados (Service Cards) --- */
+        .services-label {
+            display: block;
+            color: #c0bfbf;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Oculta o checkbox padrão */
+        .service-card input[type="checkbox"] {
+            display: none;
+        }
+
+        .service-card {
+            display: block;
             cursor: pointer;
-            appearance: none;
+            position: relative;
+        }
+
+        .card-content {
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .card-title {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
             color: var(--text-white);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        .card-desc {
+            display: block;
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        /* Estado Hover */
+        .service-card:hover .card-content {
+            border-color: #555;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Estado Selecionado (Checked) */
+        .service-card input[type="checkbox"]:checked + .card-content {
+            border-color: var(--accent-teal);
+            background: rgba(79, 209, 197, 0.08); /* Leve tint verde */
+            box-shadow: 0 0 15px rgba(79, 209, 197, 0.1);
+        }
+
+        .service-card input[type="checkbox"]:checked + .card-content .card-title {
+            color: var(--accent-teal);
         }
         
-        select.input-field option {
-            background-color: #1a1a1a;
-            color: var(--text-white);
-            padding: 10px;
+        /* Pequeno ícone de check quando selecionado */
+        .card-content::after {
+            content: '\f00c'; /* FontAwesome check */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            color: var(--accent-teal);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s ease;
         }
+
+        .service-card input[type="checkbox"]:checked + .card-content::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
 
         /* Botão CTA */
         .btn-submit {
-            margin-top: 2rem;
+            margin-top: 1rem;
             width: 100%;
             padding: 1.2rem;
             background-color: var(--accent-teal);
@@ -307,12 +384,39 @@
                     <input type="email" id="email" class="input-field" placeholder="E-mail Corporativo" required>
                 </div>
 
+                <!-- Nova Seção de Serviços (Checkboxes) -->
                 <div class="input-group">
-                    <select id="servico" class="input-field" required>
-                        <option value="" disabled selected>Como posso ajudar?</option>
-                        <option value="formulario">Formulário de contato com IA</option>
-                        <option value="outro">Outros</option>
-                    </select>
+                    <span class="services-label">Selecione os serviços de interesse:</span>
+                    <div class="services-container">
+                        
+                        <!-- Opção 1 -->
+                        <label class="service-card">
+                            <input type="checkbox" name="servicos" value="Formulário Inteligente">
+                            <div class="card-content">
+                                <span class="card-title">Formulário Inteligente</span>
+                                <span class="card-desc">Conecto seu formulário a uma I.A para analisar e responder leads por você 24h por dia.</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 2 -->
+                        <label class="service-card">
+                            <input type="checkbox" name="servicos" value="Automação de Processos">
+                            <div class="card-content">
+                                <span class="card-title">Automação de Processos</span>
+                                <span class="card-desc">Elimine tarefas manuais repetitivas integrando seu CRM, planilhas e WhatsApp.</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 3 -->
+                        <label class="service-card">
+                            <input type="checkbox" name="servicos" value="Consultoria Micro-SaaS">
+                            <div class="card-content">
+                                <span class="card-title">Consultoria Micro-SaaS</span>
+                                <span class="card-desc">Transforme sua ideia em um software (SaaS) rentável e escalável.</span>
+                            </div>
+                        </label>
+
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -347,6 +451,16 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
             
+            // Captura todos os checkboxes marcados
+            const checkboxes = document.querySelectorAll('input[name="servicos"]:checked');
+            const servicosSelecionados = Array.from(checkboxes).map(cb => cb.value);
+
+            // Verifica se pelo menos um serviço foi marcado (opcional, mas recomendado)
+            if (servicosSelecionados.length === 0) {
+                alert("Por favor, selecione pelo menos um serviço.");
+                return;
+            }
+
             btn.innerText = 'ENVIANDO...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
@@ -355,7 +469,7 @@
                 nome: document.getElementById('nome').value,
                 empresa: document.getElementById('empresa').value,
                 email: document.getElementById('email').value,
-                servico: document.getElementById('servico').value,
+                servico: servicosSelecionados.join(', '), // Envia como string separada por vírgula
                 descricao: document.getElementById('descricao').value
             };
 
