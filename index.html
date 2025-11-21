@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Godoy | Automação</title>
+    <title>Matheus Godoy | Automation</title>
     
     <!-- Meta Tags Essenciais para SEO -->
     <meta name="description" content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems. Discover my projects and get in touch.">
@@ -407,7 +407,7 @@
       "url": "https://matheusgodoy.pro",
       "image": "https://matheusgodoy.pro/assets/profile.jpg",
       "jobTitle": "Web Solutions Developer & Micro-SaaS Founder",
-      "description": "Eu construo soluções com inteligência artificial que resolvem problemas reais.",
+      "description": "I build artificial intelligence solutions that solve real problems.",
       "sameAs": [
         "https://www.youtube.com/@matheusgodoy",
         "https://matheusgodoypro.substack.com",
@@ -439,11 +439,11 @@
         </div>
 
         <!-- Títulos Impactantes -->
-        <h1>Simplificando o Caos com<br>Automações Inteligentes</h1>
+        <h1>Taming Chaos with<br>Intelligent Automation</h1>
         
         <p class="subtitle">
-            Chega de tarefas manuais. Eu automatizo o<br>
-            atendimento e os processos da sua empresa.
+            Stop drowning in manual tasks. I automate your<br>
+            customer support and business operations.
         </p>
 
         <!-- Formulário Clean -->
@@ -451,49 +451,49 @@
             <form id="contactForm" class="minimal-form">
                 
                 <div class="input-group">
-                    <input type="text" id="nome" class="input-field" placeholder="Seu Nome" required>
+                    <input type="text" id="nome" class="input-field" placeholder="Your Name" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" id="empresa" class="input-field" placeholder="Sua Empresa" required>
+                    <input type="text" id="empresa" class="input-field" placeholder="Company Name" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="E-mail Corporativo" required>
+                    <input type="email" id="email" class="input-field" placeholder="Work Email" required>
                 </div>
 
                 <!-- Nova Seção de Serviços (Checkboxes) -->
                 <div class="input-group">
-                    <span class="services-label">Selecione os serviços de interesse:</span>
+                    <span class="services-label">Select the services you need:</span>
                     <div class="services-container">
                         
                         <!-- Opção 1 -->
                         <label class="service-card">
                             <!-- Value definido explicitamente para o Webhook -->
-                            <input type="checkbox" name="servicos" value="Formulário Inteligente">
+                            <input type="checkbox" name="servicos" value="Intelligent Intake Forms">
                             <div class="card-content">
-                                <span class="card-title">Formulário Inteligente</span>
-                                <span class="card-desc">Conecto seu formulário a uma I.A para analisar e responder leads por você 24h por dia.</span>
+                                <span class="card-title">Intelligent Intake Forms</span>
+                                <span class="card-desc">I connect your forms to AI to analyze and respond to leads for you 24/7.</span>
                             </div>
                         </label>
 
                         <!-- Opção 2 -->
                         <label class="service-card">
                             <!-- Value definido explicitamente para o Webhook -->
-                            <input type="checkbox" name="servicos" value="Pré-atendimento Inteligente">
+                            <input type="checkbox" name="servicos" value="AI Lead Qualification">
                             <div class="card-content">
-                                <span class="card-title">Pré-atendimento Inteligente</span>
-                                <span class="card-desc">Qualifique leads automaticamente e responda dúvidas frequentes (FAQ) 24h por dia, filtrando os clientes reais para o seu negócio.</span>
+                                <span class="card-title">AI Lead Qualification</span>
+                                <span class="card-desc">Automatically qualify leads and answer FAQs 24/7, filtering high-intent customers for your business.</span>
                             </div>
                         </label>
 
                         <!-- Opção 3 -->
                         <label class="service-card">
                             <!-- Value definido explicitamente para o Webhook -->
-                            <input type="checkbox" name="servicos" value="Consultoria Micro-SaaS">
+                            <input type="checkbox" name="servicos" value="Micro-SaaS Consulting">
                             <div class="card-content">
-                                <span class="card-title">Consultoria Micro-SaaS</span>
-                                <span class="card-desc">Transforme sua ideia em um Micro-SaaS rentável. Conecto serviços, planilhas, bancos de dados e IA para criar produtos digitais escaláveis.</span>
+                                <span class="card-title">Micro-SaaS Consulting</span>
+                                <span class="card-desc">Turn your idea into a profitable Micro-SaaS. I connect services, spreadsheets, databases, and AI to build scalable digital products.</span>
                             </div>
                         </label>
 
@@ -501,23 +501,23 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="text" id="descricao" class="input-field" placeholder="Detalhes do Projeto" required>
+                    <input type="text" id="descricao" class="input-field" placeholder="Project Details" required>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    Enviar Solicitação
+                    Send Request
                 </button>
             </form>
 
             <!-- Feedback (Novo Layout) -->
             <div id="successMsg" class="feedback success">
                 <i class="fas fa-check-circle feedback-icon"></i>
-                <span class="feedback-title">Solicitação Recebida!</span>
-                <span class="feedback-text">Verifique seu e-mail agora mesmo para os próximos passos.</span>
+                <span class="feedback-title">Request Received!</span>
+                <span class="feedback-text">Check your email now for the next steps.</span>
             </div>
             
             <div id="errorMsg" class="feedback error">
-                ERRO AO ENVIAR. TENTE NOVAMENTE.
+                ERROR SENDING. PLEASE TRY AGAIN.
             </div>
         </div>
 
@@ -542,11 +542,11 @@
 
             // Verifica se pelo menos um serviço foi marcado
             if (servicosSelecionados.length === 0) {
-                alert("Por favor, selecione pelo menos um serviço.");
+                alert("Please select at least one service.");
                 return;
             }
 
-            btn.innerText = 'ENVIANDO...';
+            btn.innerText = 'SENDING...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
@@ -572,11 +572,11 @@
                     successMsg.style.display = 'block';
                     setTimeout(() => { successMsg.style.display = 'none'; }, 8000); // Aumentei um pouco o tempo para leitura
                 } else {
-                    throw new Error('Erro no envio');
+                    throw new Error('Error sending');
                 }
             })
             .catch(error => {
-                console.error('Erro:', error);
+                console.error('Error:', error);
                 errorMsg.style.display = 'block';
                 setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
             })
