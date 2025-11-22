@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matheus Godoy | Automation</title>
-    
+
     <!-- Meta Tags Essenciais para SEO -->
-    <meta name="description" content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems. Discover my projects and get in touch.">
-    <meta name="keywords" content="matheus godoy, micro-saas, artificial intelligence, automations, saas, web development, web solutions, metawin, vitad, bitsimple, kakeibo">
+    <meta name="description"
+        content="I develop Micro-SaaS solutions and automations with Artificial Intelligence to solve real problems. Discover my projects and get in touch.">
+    <meta name="keywords"
+        content="matheus godoy, micro-saas, artificial intelligence, automations, saas, web development, web solutions, metawin, vitad, bitsimple, kakeibo">
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
-    
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -29,14 +34,19 @@
     <style>
         :root {
             /* Paleta Tech Noir Atualizada */
-            --bg-color: #0b1015;        /* Deep Navy - Profundidade Fria */
+            --bg-color: #0b1015;
+            /* Deep Navy - Profundidade Fria */
             --text-white: #ffffff;
-            
-            --accent-teal: #008FBB;     /* NOVO AZUL (Deep Cerulean) */
-            --accent-coral: #EA4B71;    /* n8n/Automação - Ação/Energia */
-            
-            --input-border: #1f2933;    /* Navy mais claro para bordas */
-            --input-focus: #008FBB;     /* Foco com o novo azul */
+
+            --accent-teal: #008FBB;
+            /* NOVO AZUL (Deep Cerulean) */
+            --accent-coral: #EA4B71;
+            /* n8n/Automação - Ação/Energia */
+
+            --input-border: #1f2933;
+            /* Navy mais claro para bordas */
+            --input-focus: #008FBB;
+            /* Foco com o novo azul */
         }
 
         * {
@@ -90,9 +100,9 @@
             object-fit: cover;
             /* Contraste levemente aumentado para o fundo Navy */
             filter: grayscale(20%) contrast(1.15);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
-        
+
         /* Anel decorativo com gradiente Novo Azul -> Coral */
         .avatar-ring {
             position: absolute;
@@ -104,12 +114,13 @@
             /* Truque para borda gradiente ao girar */
             border-top: 1px solid var(--accent-teal);
             border-bottom: 1px solid var(--accent-coral);
-            border-left: 1px solid rgba(0, 143, 187, 0.15); /* Ajustado para RGB do #008FBB */
+            border-left: 1px solid rgba(0, 143, 187, 0.15);
+            /* Ajustado para RGB do #008FBB */
             border-right: 1px solid rgba(234, 75, 113, 0.15);
             z-index: -1;
             animation: spin 15s linear infinite;
         }
-        
+
         /* Ponto orbital Azul (IA) */
         .avatar-ring::after {
             content: '';
@@ -127,7 +138,8 @@
         .avatar-ring::before {
             content: '';
             position: absolute;
-            bottom: -4px; /* Posicionado na parte inferior, oposto ao Teal */
+            bottom: -4px;
+            /* Posicionado na parte inferior, oposto ao Teal */
             left: 50%;
             width: 8px;
             height: 8px;
@@ -137,7 +149,9 @@
         }
 
         @keyframes spin {
-            100% { transform: rotate(360deg); }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* --- Tipografia Bold --- */
@@ -166,10 +180,10 @@
         /* --- Formulário Minimalista --- */
         .form-wrapper {
             width: 100%;
-            max-width: 500px; 
+            max-width: 500px;
             margin-top: 1rem;
         }
-        
+
         .minimal-form {
             display: flex;
             flex-direction: column;
@@ -191,11 +205,12 @@
             font-size: 1.1rem;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
-            border-radius: 0; 
+            border-radius: 0;
         }
 
         .input-field::placeholder {
-            color: #8b9bb4; /* Ajustado para combinar com o Navy */
+            color: #8b9bb4;
+            /* Ajustado para combinar com o Navy */
             font-weight: 300;
             text-transform: uppercase;
             font-size: 0.9rem;
@@ -266,16 +281,18 @@
         }
 
         /* Estado Selecionado (Checked) */
-        .service-card input[type="checkbox"]:checked + .card-content {
+        .service-card input[type="checkbox"]:checked+.card-content {
             border-color: var(--accent-teal);
-            background: rgba(0, 143, 187, 0.05); /* Ajustado para RGB do #008FBB */
-            box-shadow: 0 0 20px rgba(0, 143, 187, 0.05); /* Ajustado para RGB do #008FBB */
+            background: rgba(0, 143, 187, 0.05);
+            /* Ajustado para RGB do #008FBB */
+            box-shadow: 0 0 20px rgba(0, 143, 187, 0.05);
+            /* Ajustado para RGB do #008FBB */
         }
 
-        .service-card input[type="checkbox"]:checked + .card-content .card-title {
+        .service-card input[type="checkbox"]:checked+.card-content .card-title {
             color: var(--accent-teal);
         }
-        
+
         .card-content::after {
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
@@ -289,7 +306,7 @@
             transition: all 0.2s ease;
         }
 
-        .service-card input[type="checkbox"]:checked + .card-content::after {
+        .service-card input[type="checkbox"]:checked+.card-content::after {
             opacity: 1;
             transform: scale(1);
         }
@@ -301,7 +318,8 @@
             width: 100%;
             padding: 1.2rem;
             background-color: var(--accent-teal);
-            color: #0b1015; /* Contraste escuro (Navy) no Teal */
+            color: #0b1015;
+            /* Contraste escuro (Navy) no Teal */
             font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
@@ -310,14 +328,17 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 4px; 
+            border-radius: 4px;
         }
 
         .btn-submit:hover {
-            background-color: var(--accent-coral); /* Mudança para Coral no Hover */
-            color: #ffffff; /* Texto branco no Coral */
+            background-color: var(--accent-coral);
+            /* Mudança para Coral no Hover */
+            color: #ffffff;
+            /* Texto branco no Coral */
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px -5px rgba(234, 75, 113, 0.4); /* Glow Coral */
+            box-shadow: 0 10px 30px -5px rgba(234, 75, 113, 0.4);
+            /* Glow Coral */
         }
 
         /* Mensagens de Feedback (Novo Design) */
@@ -326,15 +347,23 @@
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
-            display: none; /* Controlado pelo JS */
+            display: none;
+            /* Controlado pelo JS */
             animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
 
         @keyframes slideUpFade {
-            from { opacity: 0; transform: translateY(20px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .feedback.success {
@@ -346,7 +375,10 @@
         .feedback.success::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
             background: var(--accent-teal);
         }
 
@@ -360,9 +392,20 @@
         }
 
         @keyframes iconPulse {
-            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7)); }
-            70% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0)); }
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7));
+            }
+
+            70% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0));
+            }
         }
 
         .feedback-title {
@@ -384,7 +427,7 @@
             line-height: 1.5;
         }
 
-        .feedback.error { 
+        .feedback.error {
             background: rgba(234, 75, 113, 0.1);
             border: 1px solid var(--accent-coral);
             color: var(--accent-coral);
@@ -393,9 +436,17 @@
 
         /* --- Responsividade --- */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 0.95rem; }
-            .container { padding: 2rem 1.2rem; }
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .container {
+                padding: 2rem 1.2rem;
+            }
         }
     </style>
 
@@ -419,13 +470,14 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4784RYMPD1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'G-4784RYMPD1');
+        gtag('config', 'G-4784RYMPD1');
     </script>
 </head>
+
 <body>
 
     <div class="container">
@@ -440,16 +492,16 @@
 
         <!-- Títulos Impactantes -->
         <h1>Taming Chaos with<br>Intelligent Automation</h1>
-        
+
         <p class="subtitle">
-            Stop drowning in manual tasks. I automate your<br>
+            Stop drowning in manual tasks. I automate your
             customer support and business operations.
         </p>
 
         <!-- Formulário Clean -->
         <div class="form-wrapper">
             <form id="contactForm" class="minimal-form">
-                
+
                 <div class="input-group">
                     <input type="text" id="nome" class="input-field" placeholder="Your Name" required>
                 </div>
@@ -466,14 +518,15 @@
                 <div class="input-group">
                     <span class="services-label">Select the services you need:</span>
                     <div class="services-container">
-                        
+
                         <!-- Opção 1 -->
                         <label class="service-card">
                             <!-- Value definido explicitamente para o Webhook -->
                             <input type="checkbox" name="servicos" value="Intelligent Intake Forms">
                             <div class="card-content">
                                 <span class="card-title">Intelligent Intake Forms</span>
-                                <span class="card-desc">I connect your forms to AI to analyze and respond to leads for you 24/7.</span>
+                                <span class="card-desc">I connect your forms to AI to analyze and respond to leads for
+                                    you 24/7.</span>
                             </div>
                         </label>
 
@@ -483,7 +536,8 @@
                             <input type="checkbox" name="servicos" value="AI Lead Qualification">
                             <div class="card-content">
                                 <span class="card-title">AI Lead Qualification</span>
-                                <span class="card-desc">Automatically qualify leads and answer FAQs 24/7, filtering high-intent customers for your business.</span>
+                                <span class="card-desc">Automatically qualify leads and answer FAQs 24/7, filtering
+                                    high-intent customers for your business.</span>
                             </div>
                         </label>
 
@@ -493,7 +547,8 @@
                             <input type="checkbox" name="servicos" value="Micro-SaaS Consulting">
                             <div class="card-content">
                                 <span class="card-title">Micro-SaaS Consulting</span>
-                                <span class="card-desc">Turn your idea into a profitable Micro-SaaS. I connect services, spreadsheets, databases, and AI to build scalable digital products.</span>
+                                <span class="card-desc">Turn your idea into a profitable Micro-SaaS. I connect services,
+                                    spreadsheets, databases, and AI to build scalable digital products.</span>
                             </div>
                         </label>
 
@@ -515,7 +570,7 @@
                 <span class="feedback-title">Request Received!</span>
                 <span class="feedback-text">Check your email now for the next steps.</span>
             </div>
-            
+
             <div id="errorMsg" class="feedback error">
                 ERROR SENDING. PLEASE TRY AGAIN.
             </div>
@@ -524,9 +579,9 @@
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
             const btn = this.querySelector('.btn-submit');
             const originalText = btn.innerText;
             const successMsg = document.getElementById('successMsg');
@@ -534,7 +589,7 @@
 
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
-            
+
             // Captura todos os checkboxes marcados
             const checkboxes = document.querySelectorAll('input[name="servicos"]:checked');
             // Mapeia apenas o atributo 'value' de cada checkbox marcado
@@ -555,7 +610,7 @@
                 empresa: document.getElementById('empresa').value,
                 email: document.getElementById('email').value,
                 // Envia os valores selecionados como uma string separada por vírgula
-                servico: servicosSelecionados.join(', '), 
+                servico: servicosSelecionados.join(', '),
                 descricao: document.getElementById('descricao').value
             };
 
@@ -566,27 +621,28 @@
                 },
                 body: JSON.stringify(formData)
             })
-            .then(response => {
-                if (response.ok) {
-                    this.reset();
-                    successMsg.style.display = 'block';
-                    setTimeout(() => { successMsg.style.display = 'none'; }, 8000); // Aumentei um pouco o tempo para leitura
-                } else {
-                    throw new Error('Error sending');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                errorMsg.style.display = 'block';
-                setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
-            })
-            .finally(() => {
-                btn.innerText = originalText;
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            });
+                .then(response => {
+                    if (response.ok) {
+                        this.reset();
+                        successMsg.style.display = 'block';
+                        setTimeout(() => { successMsg.style.display = 'none'; }, 8000); // Aumentei um pouco o tempo para leitura
+                    } else {
+                        throw new Error('Error sending');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMsg.style.display = 'block';
+                    setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
+                })
+                .finally(() => {
+                    btn.innerText = originalText;
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                });
         });
     </script>
 
 </body>
+
 </html>
