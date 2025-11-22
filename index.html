@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matheus Godoy | Automation Expert</title>
-    
+
     <!-- Meta Tags Essenciais para SEO -->
-    <meta name="description" content="I help US businesses scale by automating operations and qualifying leads with AI. Stop wasting time on manual tasks.">
-    <meta name="keywords" content="matheus godoy, ai automation, n8n expert, micro-saas, business automation, lead qualification">
+    <meta name="description"
+        content="I help US businesses scale by automating operations and qualifying leads with AI. Stop wasting time on manual tasks.">
+    <meta name="keywords"
+        content="matheus godoy, ai automation, n8n expert, micro-saas, business automation, lead qualification">
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
-    
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -29,15 +34,16 @@
     <style>
         :root {
             /* Paleta Tech Noir Refinada */
-            --bg-color: #0b1015;        
-            --text-main: #ffffff;       
-            --text-muted: #cbd5e1;      
-            
-            --accent-teal: #008FBB;     /* Deep Cerulean */
-            --accent-coral: #EA4B71;    
-            
-            --input-border: #1f2933;    
-            --input-focus: #008FBB;     
+            --bg-color: #0b1015;
+            --text-main: #ffffff;
+            --text-muted: #cbd5e1;
+
+            --accent-teal: #008FBB;
+            /* Deep Cerulean */
+            --accent-coral: #EA4B71;
+
+            --input-border: #1f2933;
+            --input-focus: #008FBB;
         }
 
         * {
@@ -80,7 +86,7 @@
         }
 
         .avatar-container {
-            width: 160px; 
+            width: 160px;
             height: 160px;
             margin-bottom: 2.5rem;
             position: relative;
@@ -95,27 +101,40 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent-teal);
-            box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--accent-coral), 0 15px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--accent-coral), 0 15px 40px rgba(0, 0, 0, 0.6);
             background: radial-gradient(circle at center, #1a2633 0%, var(--bg-color) 80%);
             z-index: 2;
             position: relative;
         }
-        
+
         .orbital-dot {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             animation: spin 20s linear infinite;
             pointer-events: none;
         }
-        
+
         .orbital-dot::after {
-            content: ''; position: absolute; top: -2px; left: 50%;
-            width: 6px; height: 6px; background: var(--accent-teal);
-            border-radius: 50%; box-shadow: 0 0 8px var(--accent-teal);
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-teal);
         }
 
-        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         /* --- Tipografia --- */
         h1 {
@@ -130,8 +149,8 @@
         }
 
         .subtitle {
-            font-family: 'Inter', sans-serif; 
-            color: var(--text-muted);         
+            font-family: 'Inter', sans-serif;
+            color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 4rem;
@@ -147,10 +166,10 @@
         /* --- Formulário --- */
         .form-wrapper {
             width: 100%;
-            max-width: 500px; 
+            max-width: 500px;
             margin-top: 1rem;
         }
-        
+
         .minimal-form {
             display: flex;
             flex-direction: column;
@@ -164,9 +183,9 @@
 
         .input-field {
             width: 100%;
-            background: rgba(255,255,255,0.03); 
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--input-border);
-            border-radius: 8px; 
+            border-radius: 8px;
             padding: 1rem;
             color: var(--text-main);
             font-size: 1rem;
@@ -204,9 +223,15 @@
             gap: 0.8rem;
         }
 
-        .service-card input[type="checkbox"] { display: none; }
+        .service-card input[type="checkbox"] {
+            display: none;
+        }
 
-        .service-card { display: block; cursor: pointer; position: relative; }
+        .service-card {
+            display: block;
+            cursor: pointer;
+            position: relative;
+        }
 
         .card-content {
             border: 1px solid var(--input-border);
@@ -237,15 +262,15 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
-        .service-card input[type="checkbox"]:checked + .card-content {
+        .service-card input[type="checkbox"]:checked+.card-content {
             border-color: var(--accent-teal);
             background: rgba(0, 143, 187, 0.08);
         }
 
-        .service-card input[type="checkbox"]:checked + .card-content .card-title {
+        .service-card input[type="checkbox"]:checked+.card-content .card-title {
             color: var(--accent-teal);
         }
-        
+
         .card-content::after {
             content: '\f00c';
             font-family: 'Font Awesome 6 Free';
@@ -259,7 +284,7 @@
             transition: all 0.2s ease;
         }
 
-        .service-card input[type="checkbox"]:checked + .card-content::after {
+        .service-card input[type="checkbox"]:checked+.card-content::after {
             opacity: 1;
             transform: scale(1);
         }
@@ -269,7 +294,7 @@
             margin-top: 1.5rem;
             width: 100%;
             padding: 1.2rem;
-            background-color: var(--text-main); 
+            background-color: var(--text-main);
             color: var(--bg-color);
             font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
@@ -279,7 +304,7 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-radius: 8px; 
+            border-radius: 8px;
         }
 
         .btn-submit:hover {
@@ -295,13 +320,24 @@
             padding: 2rem;
             border-radius: 12px;
             text-align: center;
-            display: none; /* JS controla */
+            display: none;
+            /* JS controla */
             animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
 
-        @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
         .feedback.success {
             background: linear-gradient(135deg, rgba(0, 143, 187, 0.15), rgba(0, 143, 187, 0.05));
@@ -310,30 +346,60 @@
         }
 
         .feedback.success::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent-teal);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-teal);
         }
 
         .feedback-icon {
-            font-size: 3rem; color: var(--accent-teal); margin-bottom: 1rem; display: block;
+            font-size: 3rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            display: block;
             animation: iconPulse 2s infinite;
         }
-        
-        @keyframes iconPulse { 
-            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7)); }
-            50% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0)); }
+
+        @keyframes iconPulse {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7));
+            }
+
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0));
+            }
         }
 
         .feedback-title {
-            display: block; font-family: 'Oswald', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text-main);
-            text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
         .feedback-text {
-            display: block; font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--text-muted); line-height: 1.5;
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .feedback.error { 
+        .feedback.error {
             background: rgba(234, 75, 113, 0.1);
             border: 1px solid var(--accent-coral);
             color: var(--accent-coral);
@@ -342,12 +408,22 @@
 
         /* Responsivo */
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1rem; padding: 0 1rem; }
-            .container { padding: 3rem 1.5rem; }
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -363,31 +439,32 @@
         </div>
 
         <h1>Taming Chaos with<br>Intelligent Automation</h1>
-        
+
         <p class="subtitle">
-            Stop drowning in manual tasks. I automate your customer support and business operations so you can focus on <strong>growth</strong>.
+            Stop drowning in manual tasks. I automate your customer support and business operations so you can focus on
+            <strong>growth</strong>.
         </p>
 
         <div class="form-wrapper">
             <form id="contactForm" class="minimal-form">
-                
+
                 <!-- IDs atualizados para inglês -->
                 <div class="input-group">
-                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
+                    <input type="text" id="name" class="input-field" placeholder="Your Name *" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" id="company" class="input-field" placeholder="Company Name" required>
+                    <input type="text" id="company" class="input-field" placeholder="Company Name *" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Work Email" required>
+                    <input type="email" id="email" class="input-field" placeholder="Work Email *" required>
                 </div>
 
                 <div class="input-group">
-                    <span class="services-label">Select Services Needed:</span>
+                    <span class="services-label">Select Services Needed *:</span>
                     <div class="services-container">
-                        
+
                         <!-- Name atualizado para 'services' -->
                         <label class="service-card">
                             <input type="checkbox" name="services" value="Intelligent Intake Forms">
@@ -401,7 +478,8 @@
                             <input type="checkbox" name="services" value="AI Lead Qualification">
                             <div class="card-content">
                                 <span class="card-title">AI Lead Qualification</span>
-                                <span class="card-desc">Auto-qualify leads & answer FAQs instantly to filter high-intent buyers.</span>
+                                <span class="card-desc">Auto-qualify leads & answer FAQs instantly to filter high-intent
+                                    buyers.</span>
                             </div>
                         </label>
 
@@ -409,7 +487,8 @@
                             <input type="checkbox" name="services" value="Micro-SaaS Consulting">
                             <div class="card-content">
                                 <span class="card-title">Micro-SaaS Consulting</span>
-                                <span class="card-desc">Turn your idea into a scalable product connecting AI, databases & APIs.</span>
+                                <span class="card-desc">Turn your idea into a scalable product connecting AI, databases
+                                    & APIs.</span>
                             </div>
                         </label>
 
@@ -418,7 +497,8 @@
 
                 <!-- ID atualizado para 'project_details' -->
                 <div class="input-group">
-                    <input type="text" id="project_details" class="input-field" placeholder="Brief Project Details" required>
+                    <input type="text" id="project_details" class="input-field" placeholder="Brief Project Details *"
+                        required>
                 </div>
 
                 <button type="submit" class="btn-submit">
@@ -431,7 +511,7 @@
                 <span class="feedback-title">Request Received!</span>
                 <span class="feedback-text">Check your email now for an instant AI analysis of your project.</span>
             </div>
-            
+
             <div id="errorMsg" class="feedback error">
                 Error sending. Please try again.
             </div>
@@ -440,9 +520,9 @@
     </div>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
             const btn = this.querySelector('.btn-submit');
             const originalText = btn.innerText;
             const successMsg = document.getElementById('successMsg');
@@ -450,7 +530,7 @@
 
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
-            
+
             // Variáveis atualizadas para inglês
             const checkboxes = document.querySelectorAll('input[name="services"]:checked');
             const selectedServices = Array.from(checkboxes).map(cb => cb.value);
@@ -469,7 +549,7 @@
                 name: document.getElementById('name').value,
                 company: document.getElementById('company').value,
                 email: document.getElementById('email').value,
-                services: selectedServices.join(', '), 
+                services: selectedServices.join(', '),
                 project_details: document.getElementById('project_details').value
             };
 
@@ -478,27 +558,28 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             })
-            .then(response => {
-                if (response.ok) {
-                    this.reset();
-                    successMsg.style.display = 'block';
-                    setTimeout(() => { successMsg.style.display = 'none'; }, 8000);
-                } else {
-                    throw new Error('Error');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                errorMsg.style.display = 'block';
-                setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
-            })
-            .finally(() => {
-                btn.innerText = originalText;
-                btn.style.opacity = '1';
-                btn.disabled = false;
-            });
+                .then(response => {
+                    if (response.ok) {
+                        this.reset();
+                        successMsg.style.display = 'block';
+                        setTimeout(() => { successMsg.style.display = 'none'; }, 8000);
+                    } else {
+                        throw new Error('Error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMsg.style.display = 'block';
+                    setTimeout(() => { errorMsg.style.display = 'none'; }, 5000);
+                })
+                .finally(() => {
+                    btn.innerText = originalText;
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                });
         });
     </script>
 
 </body>
+
 </html>
