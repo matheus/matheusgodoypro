@@ -100,13 +100,18 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
+            /* Borda dupla sofisticada */
             border: 2px solid var(--accent-teal);
             box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--accent-coral), 0 15px 40px rgba(0, 0, 0, 0.6);
+
+            /* Fundo SPOTLIGHT: Cria uma luz atrás da sua cabeça (para PNG transparente) */
             background: radial-gradient(circle at center, #1a2633 0%, var(--bg-color) 80%);
+
             z-index: 2;
             position: relative;
         }
 
+        /* Pequeno detalhe orbital */
         .orbital-dot {
             position: absolute;
             top: 0;
@@ -432,8 +437,7 @@
         <div class="avatar-container">
             <div class="orbital-dot"></div>
             <!-- 
-                IMPORTANTE: Certifique-se de que sua imagem sem fundo esteja nomeada como 'profile.png'
-                e esteja na pasta 'assets'. Caso contrário, a imagem aparecerá quebrada.
+                IMPORTANTE: A imagem deve ser PNG transparente para o efeito de luz funcionar.
             -->
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
@@ -448,7 +452,7 @@
         <div class="form-wrapper">
             <form id="contactForm" class="minimal-form">
 
-                <!-- IDs atualizados para inglês -->
+                <!-- IDs em inglês e marcados como obrigatórios -->
                 <div class="input-group">
                     <input type="text" id="name" class="input-field" placeholder="Your Name *" required>
                 </div>
@@ -465,37 +469,40 @@
                     <span class="services-label">Select Services Needed *:</span>
                     <div class="services-container">
 
-                        <!-- Name atualizado para 'services' -->
+                        <!-- SERVIÇO 1: Focado em Vendas -->
                         <label class="service-card">
-                            <input type="checkbox" name="services" value="Intelligent Intake Forms">
+                            <input type="checkbox" name="services" value="24/7 Lead Conversion System">
                             <div class="card-content">
-                                <span class="card-title">Intelligent Intake Forms</span>
-                                <span class="card-desc">Connect forms to AI to analyze and respond to leads 24/7.</span>
+                                <span class="card-title">24/7 Lead Conversion System</span>
+                                <span class="card-desc">Guarantee instant response. My system captures, qualifies, and
+                                    books meetings with buyers while you sleep.</span>
                             </div>
                         </label>
 
+                        <!-- SERVIÇO 2: Focado em Operações -->
                         <label class="service-card">
-                            <input type="checkbox" name="services" value="AI Lead Qualification">
+                            <input type="checkbox" name="services" value="Business Operations Autopilot">
                             <div class="card-content">
-                                <span class="card-title">AI Lead Qualification</span>
-                                <span class="card-desc">Auto-qualify leads & answer FAQs instantly to filter high-intent
-                                    buyers.</span>
+                                <span class="card-title">Business Operations Autopilot</span>
+                                <span class="card-desc">Stop acting like a robot. I automate repetitive internal
+                                    workflows (invoicing, data entry) to save 20+ hours/week.</span>
                             </div>
                         </label>
 
+                        <!-- SERVIÇO 3: Consultoria Micro-SaaS (REMOVIDO TEMPORARIAMENTE) -->
+                        <!-- 
                         <label class="service-card">
                             <input type="checkbox" name="services" value="Micro-SaaS Consulting">
                             <div class="card-content">
                                 <span class="card-title">Micro-SaaS Consulting</span>
-                                <span class="card-desc">Turn your idea into a scalable product connecting AI, databases
-                                    & APIs.</span>
+                                <span class="card-desc">Turn your idea into a scalable product connecting AI, databases & APIs.</span>
                             </div>
-                        </label>
+                        </label> 
+                        -->
 
                     </div>
                 </div>
 
-                <!-- ID atualizado para 'project_details' -->
                 <div class="input-group">
                     <input type="text" id="project_details" class="input-field" placeholder="Brief Project Details *"
                         required>
@@ -531,10 +538,10 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            // Variáveis atualizadas para inglês
             const checkboxes = document.querySelectorAll('input[name="services"]:checked');
             const selectedServices = Array.from(checkboxes).map(cb => cb.value);
 
+            // Validação extra
             if (selectedServices.length === 0) {
                 alert("Please select at least one service.");
                 return;
@@ -544,7 +551,6 @@
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
-            // Payload atualizado com chaves em inglês
             const formData = {
                 name: document.getElementById('name').value,
                 company: document.getElementById('company').value,
@@ -553,7 +559,10 @@
                 project_details: document.getElementById('project_details').value
             };
 
-            fetch('https://hook.us2.make.com/xuch8shzch9sgoofpfaxbhgofq8px6e1', {
+            // URL Webhook Atualizada
+            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/contact';
+
+            fetch(n8nWebhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
