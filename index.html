@@ -20,7 +20,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- FontAwesome Atualizado para v6.6.0 (Suporte ao ícone X) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -100,18 +102,13 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            /* Borda dupla sofisticada */
             border: 2px solid var(--accent-teal);
             box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--accent-coral), 0 15px 40px rgba(0, 0, 0, 0.6);
-
-            /* Fundo SPOTLIGHT: Cria uma luz atrás da sua cabeça (para PNG transparente) */
             background: radial-gradient(circle at center, #1a2633 0%, var(--bg-color) 80%);
-
             z-index: 2;
             position: relative;
         }
 
-        /* Pequeno detalhe orbital */
         .orbital-dot {
             position: absolute;
             top: 0;
@@ -158,7 +155,8 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
+            /* Reduzido para aproximar dos ícones */
             max-width: 500px;
             font-weight: 300;
         }
@@ -166,6 +164,53 @@
         .subtitle strong {
             color: var(--text-main);
             font-weight: 600;
+        }
+
+        /* --- Social Links (NOVO) --- */
+        .social-section {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--input-border);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .social-btn:hover {
+            background: rgba(0, 143, 187, 0.1);
+            color: var(--accent-teal);
+            border-color: var(--accent-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 143, 187, 0.2);
+        }
+
+        /* Substack SVG styling */
+        .social-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Hover específico para diferenciar sutilmente */
+        .social-btn.substack:hover {
+            color: #FF6719;
+            border-color: #FF6719;
+            background: rgba(255, 103, 25, 0.1);
+            box-shadow: 0 5px 15px rgba(255, 103, 25, 0.2);
         }
 
         /* --- Formulário --- */
@@ -437,7 +482,8 @@
         <div class="avatar-container">
             <div class="orbital-dot"></div>
             <!-- 
-                IMPORTANTE: A imagem deve ser PNG transparente para o efeito de luz funcionar.
+                IMPORTANTE: Certifique-se de que sua imagem sem fundo esteja nomeada como 'profile.png'
+                e esteja na pasta 'assets'. 
             -->
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
@@ -449,10 +495,33 @@
             <strong>growth</strong>.
         </p>
 
+        <!-- NOVA SEÇÃO: Redes Sociais para Autoridade -->
+        <div class="social-section">
+            <!-- Link para o X (Twitter) -->
+            <a href="https://x.com/matheusgodoypro" target="_blank" class="social-btn x" aria-label="X (Twitter)">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <!-- Link para o Substack -->
+            <a href="https://matheusgodoypro.substack.com/" target="_blank" class="social-btn substack"
+                aria-label="Substack">
+                <!-- Ícone SVG personalizado para Substack -->
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Substack</title>
+                    <path
+                        d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+                </svg>
+            </a>
+            <!-- Link para o LinkedIn -->
+            <a href="https://linkedin.com/in/matheusgodoy" target="_blank" class="social-btn linkedin"
+                aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+
         <div class="form-wrapper">
             <form id="contactForm" class="minimal-form">
 
-                <!-- IDs em inglês e marcados como obrigatórios -->
+                <!-- IDs atualizados para inglês -->
                 <div class="input-group">
                     <input type="text" id="name" class="input-field" placeholder="Your Name *" required>
                 </div>
@@ -541,7 +610,6 @@
             const checkboxes = document.querySelectorAll('input[name="services"]:checked');
             const selectedServices = Array.from(checkboxes).map(cb => cb.value);
 
-            // Validação extra
             if (selectedServices.length === 0) {
                 alert("Please select at least one service.");
                 return;
@@ -559,7 +627,6 @@
                 project_details: document.getElementById('project_details').value
             };
 
-            // URL Webhook Atualizada
             const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/contact';
 
             fetch(n8nWebhookUrl, {
