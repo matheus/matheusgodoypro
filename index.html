@@ -156,7 +156,6 @@
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 2rem;
-            /* Reduzido para aproximar dos ícones */
             max-width: 500px;
             font-weight: 300;
         }
@@ -166,7 +165,7 @@
             font-weight: 600;
         }
 
-        /* --- Social Links (NOVO) --- */
+        /* --- Social Links --- */
         .social-section {
             display: flex;
             justify-content: center;
@@ -198,19 +197,111 @@
             box-shadow: 0 5px 15px rgba(0, 143, 187, 0.2);
         }
 
-        /* Substack SVG styling */
         .social-btn svg {
             width: 20px;
             height: 20px;
             fill: currentColor;
         }
 
-        /* Hover específico para diferenciar sutilmente */
         .social-btn.substack:hover {
             color: #FF6719;
             border-color: #FF6719;
             background: rgba(255, 103, 25, 0.1);
             box-shadow: 0 5px 15px rgba(255, 103, 25, 0.2);
+        }
+
+        /* --- Products Section (NOVO) --- */
+        .products-section {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 3.5rem;
+            text-align: left;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent-coral);
+            padding-left: 12px;
+            display: inline-block;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Mobile first: 1 coluna */
+            gap: 1rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            background: rgba(0, 143, 187, 0.05);
+            border-color: var(--accent-teal);
+            transform: translateX(5px);
+        }
+
+        .product-icon {
+            font-size: 1.8rem;
+            color: var(--accent-teal);
+            min-width: 40px;
+            text-align: center;
+            padding-top: 0.2rem;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .product-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .product-card::after {
+            content: '\f061';
+            /* Arrow right icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            color: var(--accent-teal);
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateX(-10px);
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         /* --- Formulário --- */
@@ -457,6 +548,24 @@
         }
 
         /* Responsivo */
+        @media (min-width: 600px) {
+
+            /* Grid de 3 colunas em telas maiores para os produtos */
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .product-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .product-icon {
+                margin-bottom: 0.5rem;
+            }
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 2.5rem;
@@ -481,10 +590,7 @@
 
         <div class="avatar-container">
             <div class="orbital-dot"></div>
-            <!-- 
-                IMPORTANTE: Certifique-se de que sua imagem sem fundo esteja nomeada como 'profile.png'
-                e esteja na pasta 'assets'. 
-            -->
+            <!-- IMPORTANTE: Imagem deve ser PNG transparente -->
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
 
@@ -495,33 +601,63 @@
             <strong>growth</strong>.
         </p>
 
-        <!-- NOVA SEÇÃO: Redes Sociais para Autoridade -->
+        <!-- Redes Sociais -->
         <div class="social-section">
-            <!-- Link para o X (Twitter) -->
             <a href="https://x.com/matheusgodoypro" target="_blank" class="social-btn x" aria-label="X (Twitter)">
                 <i class="fa-brands fa-x-twitter"></i>
             </a>
-            <!-- Link para o Substack -->
             <a href="https://matheusgodoypro.substack.com/" target="_blank" class="social-btn substack"
                 aria-label="Substack">
-                <!-- Ícone SVG personalizado para Substack -->
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <title>Substack</title>
                     <path
                         d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
                 </svg>
             </a>
-            <!-- Link para o LinkedIn -->
             <a href="https://linkedin.com/in/matheusgodoy" target="_blank" class="social-btn linkedin"
                 aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
         </div>
 
+        <!-- SEÇÃO DE PRODUTOS (PORTFÓLIO) -->
+        <div class="products-section">
+            <h3 class="section-title">Featured Products</h3>
+            <div class="products-grid">
+
+                <!-- BitSimple -->
+                <a href="https://bitsimple.netlify.app/" target="_blank" class="product-card">
+                    <i class="fa-brands fa-bitcoin product-icon"></i>
+                    <div class="product-info">
+                        <div class="product-name">BitSimple</div>
+                        <p class="product-desc">Combined Bitcoin indicator for smarter buy/sell decisions.</p>
+                    </div>
+                </a>
+
+                <!-- VitaD -->
+                <a href="https://vitad.online/" target="_blank" class="product-card">
+                    <i class="fa-regular fa-sun product-icon"></i>
+                    <div class="product-info">
+                        <div class="product-name">VitaD</div>
+                        <p class="product-desc">Unlock your natural energy with the Sunshine Vitamin Calculator.</p>
+                    </div>
+                </a>
+
+                <!-- Kakeibo.Art -->
+                <a href="https://kakeibo.art/" target="_blank" class="product-card">
+                    <i class="fa-solid fa-wallet product-icon"></i>
+                    <div class="product-info">
+                        <div class="product-name">Kakeibo.Art</div>
+                        <p class="product-desc">Japanese method web app for mindful personal expense tracking.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
         <div class="form-wrapper">
             <form id="contactForm" class="minimal-form">
 
-                <!-- IDs atualizados para inglês -->
                 <div class="input-group">
                     <input type="text" id="name" class="input-field" placeholder="Your Name *" required>
                 </div>
@@ -538,7 +674,6 @@
                     <span class="services-label">Select Services Needed *:</span>
                     <div class="services-container">
 
-                        <!-- SERVIÇO 1: Focado em Vendas -->
                         <label class="service-card">
                             <input type="checkbox" name="services" value="24/7 Lead Conversion System">
                             <div class="card-content">
@@ -548,7 +683,6 @@
                             </div>
                         </label>
 
-                        <!-- SERVIÇO 2: Focado em Operações -->
                         <label class="service-card">
                             <input type="checkbox" name="services" value="Business Operations Autopilot">
                             <div class="card-content">
@@ -557,17 +691,6 @@
                                     workflows (invoicing, data entry) to save 20+ hours/week.</span>
                             </div>
                         </label>
-
-                        <!-- SERVIÇO 3: Consultoria Micro-SaaS (REMOVIDO TEMPORARIAMENTE) -->
-                        <!-- 
-                        <label class="service-card">
-                            <input type="checkbox" name="services" value="Micro-SaaS Consulting">
-                            <div class="card-content">
-                                <span class="card-title">Micro-SaaS Consulting</span>
-                                <span class="card-desc">Turn your idea into a scalable product connecting AI, databases & APIs.</span>
-                            </div>
-                        </label> 
-                        -->
 
                     </div>
                 </div>
