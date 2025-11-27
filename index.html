@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Godoy | Automation Expert</title>
+    <title>Matheus Godoy | Indie Maker & Problem Solver</title>
 
     <!-- Meta Tags Essenciais para SEO -->
     <meta name="description"
-        content="I help US businesses scale by automating operations and qualifying leads with AI. Stop wasting time on manual tasks.">
+        content="Indie Maker building Micro-SaaS solutions for real-world problems. Check out my portfolio of tools and apps.">
     <meta name="keywords"
-        content="matheus godoy, ai automation, n8n expert, micro-saas, business automation, lead qualification">
+        content="matheus godoy, indie maker, micro-saas, software engineer, product builder, bitsimple, vitad">
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
 
@@ -21,7 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome Atualizado para v6.6.0 (Suporte ao ícone X) -->
+    <!-- FontAwesome Atualizado para v6.6.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Favicon Links -->
@@ -210,7 +210,7 @@
             box-shadow: 0 5px 15px rgba(255, 103, 25, 0.2);
         }
 
-        /* --- Products Section (NOVO) --- */
+        /* --- Products Section --- */
         .products-section {
             width: 100%;
             max-width: 600px;
@@ -317,6 +317,14 @@
             gap: 1.5rem;
         }
 
+        .form-header {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
         .input-group {
             position: relative;
             text-align: left;
@@ -334,7 +342,6 @@
             transition: all 0.2s ease;
         }
 
-        /* Ajuste para textarea se necessário, mas usando input para manter padrão visual */
         textarea.input-field {
             min-height: 100px;
             resize: vertical;
@@ -517,10 +524,11 @@
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
 
-        <h1>What's Your Biggest<br>Challenge?</h1>
+        <h1>Building Tools for<br>Real World Problems</h1>
 
         <p class="subtitle">
-            Stop wasting time on manual work. Tell me your specific problem below, and I'll automate the solution.
+            I'm a <strong>self-taught Indie Hacker</strong> and dad turning complex problems into simple Micro-SaaS
+            solutions. Check out my portfolio below.
         </p>
 
         <!-- Redes Sociais -->
@@ -544,7 +552,7 @@
 
         <!-- SEÇÃO DE PRODUTOS (PORTFÓLIO) -->
         <div class="products-section">
-            <h3 class="section-title">Featured Products</h3>
+            <h3 class="section-title">My Portfolio</h3>
             <div class="products-grid">
 
                 <!-- BitSimple -->
@@ -588,35 +596,38 @@
         </div>
 
         <div class="form-wrapper">
+            <h3 class="form-header">Have a Problem worth solving?</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                I am always looking for the next Micro-SaaS idea. If you have a repetitive problem that needs software,
+                tell me about it.
+            </p>
+
             <form id="contactForm" class="minimal-form">
 
                 <div class="input-group">
-                    <input type="text" id="name" class="input-field" placeholder="Your Name *" required>
+                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="text" id="company" class="input-field" placeholder="Company Name *" required>
-                </div>
-
-                <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Work Email *" required>
+                    <input type="email" id="email" class="input-field" placeholder="Email (for updates)" required>
                 </div>
 
                 <!-- Modificado: Descrição do Problema -->
                 <div class="input-group">
                     <textarea id="project_details" class="input-field"
-                        placeholder="What is the problem/challenge you need to solve? *" rows="3" required></textarea>
+                        placeholder="What is a problem you wish software could solve for you?" rows="3"
+                        required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    Send Request
+                    Send Idea
                 </button>
             </form>
 
             <div id="successMsg" class="feedback success">
                 <i class="fas fa-check-circle feedback-icon"></i>
-                <span class="feedback-title">Request Received!</span>
-                <span class="feedback-text">I'll analyze your challenge and get back to you with a solution.</span>
+                <span class="feedback-title">Thanks!</span>
+                <span class="feedback-text">I've added your idea to my list. I'll let you know if I build it.</span>
             </div>
 
             <div id="errorMsg" class="feedback error">
@@ -638,18 +649,15 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            // Removida a verificação de serviços
-
             btn.innerText = 'SENDING...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
+            // Removi o campo "Company" pois é menos relevante para B2C/Indie Hacker
             const formData = {
                 name: document.getElementById('name').value,
-                company: document.getElementById('company').value,
                 email: document.getElementById('email').value,
-                // Removido o campo services
-                project_details: document.getElementById('project_details').value
+                idea_suggestion: document.getElementById('project_details').value
             };
 
             const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/contact';
