@@ -334,6 +334,12 @@
             transition: all 0.2s ease;
         }
 
+        /* Ajuste para textarea se necessário, mas usando input para manter padrão visual */
+        textarea.input-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
         .input-field::placeholder {
             color: #64748b;
             font-size: 0.9rem;
@@ -345,89 +351,6 @@
             outline: none;
             border-color: var(--accent-teal);
             background: rgba(0, 143, 187, 0.05);
-        }
-
-        /* --- Checkboxes --- */
-        .services-label {
-            display: block;
-            color: #94a3b8;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .services-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .service-card input[type="checkbox"] {
-            display: none;
-        }
-
-        .service-card {
-            display: block;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .card-content {
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.01);
-            transition: all 0.2s ease;
-        }
-
-        .card-title {
-            display: block;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1rem;
-            color: var(--text-main);
-            margin-bottom: 0.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .card-desc {
-            display: block;
-            font-size: 0.85rem;
-            color: #94a3b8;
-            line-height: 1.4;
-        }
-
-        .service-card:hover .card-content {
-            border-color: #3f4a5a;
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .service-card input[type="checkbox"]:checked+.card-content {
-            border-color: var(--accent-teal);
-            background: rgba(0, 143, 187, 0.08);
-        }
-
-        .service-card input[type="checkbox"]:checked+.card-content .card-title {
-            color: var(--accent-teal);
-        }
-
-        .card-content::after {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            color: var(--accent-teal);
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.2s ease;
-        }
-
-        .service-card input[type="checkbox"]:checked+.card-content::after {
-            opacity: 1;
-            transform: scale(1);
         }
 
         /* Botão CTA */
@@ -594,11 +517,10 @@
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
 
-        <h1>Taming Chaos with<br>Intelligent Automation</h1>
+        <h1>What's Your Biggest<br>Challenge?</h1>
 
         <p class="subtitle">
-            Stop drowning in manual tasks. I automate your customer support and business operations so you can focus on
-            <strong>growth</strong>.
+            Stop wasting time on manual work. Tell me your specific problem below, and I'll automate the solution.
         </p>
 
         <!-- Redes Sociais -->
@@ -634,7 +556,7 @@
                     </div>
                 </a>
 
-                <!-- MetaWINFUT (NOVO) -->
+                <!-- MetaWINFUT -->
                 <a href="https://metawinfut.libertax.com.br/" target="_blank" class="product-card">
                     <i class="fa-solid fa-chart-line product-icon"></i>
                     <div class="product-info">
@@ -680,45 +602,21 @@
                     <input type="email" id="email" class="input-field" placeholder="Work Email *" required>
                 </div>
 
+                <!-- Modificado: Descrição do Problema -->
                 <div class="input-group">
-                    <span class="services-label">Select Services Needed *:</span>
-                    <div class="services-container">
-
-                        <label class="service-card">
-                            <input type="checkbox" name="services" value="24/7 Lead Conversion System">
-                            <div class="card-content">
-                                <span class="card-title">24/7 Lead Conversion System</span>
-                                <span class="card-desc">Guarantee instant response. My system captures, qualifies, and
-                                    books meetings with buyers while you sleep.</span>
-                            </div>
-                        </label>
-
-                        <label class="service-card">
-                            <input type="checkbox" name="services" value="Business Operations Autopilot">
-                            <div class="card-content">
-                                <span class="card-title">Business Operations Autopilot</span>
-                                <span class="card-desc">Stop acting like a robot. I automate repetitive internal
-                                    workflows (invoicing, data entry) to save 20+ hours/week.</span>
-                            </div>
-                        </label>
-
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <input type="text" id="project_details" class="input-field" placeholder="Brief Project Details *"
-                        required>
+                    <textarea id="project_details" class="input-field"
+                        placeholder="What is the problem/challenge you need to solve? *" rows="3" required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    Start Automation
+                    Send Request
                 </button>
             </form>
 
             <div id="successMsg" class="feedback success">
                 <i class="fas fa-check-circle feedback-icon"></i>
                 <span class="feedback-title">Request Received!</span>
-                <span class="feedback-text">Check your email now for an instant AI analysis of your project.</span>
+                <span class="feedback-text">I'll analyze your challenge and get back to you with a solution.</span>
             </div>
 
             <div id="errorMsg" class="feedback error">
@@ -740,15 +638,9 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            const checkboxes = document.querySelectorAll('input[name="services"]:checked');
-            const selectedServices = Array.from(checkboxes).map(cb => cb.value);
+            // Removida a verificação de serviços
 
-            if (selectedServices.length === 0) {
-                alert("Please select at least one service.");
-                return;
-            }
-
-            btn.innerText = 'PROCESSING...';
+            btn.innerText = 'SENDING...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
@@ -756,7 +648,7 @@
                 name: document.getElementById('name').value,
                 company: document.getElementById('company').value,
                 email: document.getElementById('email').value,
-                services: selectedServices.join(', '),
+                // Removido o campo services
                 project_details: document.getElementById('project_details').value
             };
 
