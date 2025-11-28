@@ -171,6 +171,7 @@
             justify-content: center;
             gap: 1.5rem;
             margin-bottom: 3.5rem;
+            flex-wrap: wrap;
         }
 
         .social-btn {
@@ -208,6 +209,13 @@
             border-color: #FF6719;
             background: rgba(255, 103, 25, 0.1);
             box-shadow: 0 5px 15px rgba(255, 103, 25, 0.2);
+        }
+
+        .social-btn.telegram:hover {
+            color: #24A1DE;
+            border-color: #24A1DE;
+            background: rgba(36, 161, 222, 0.1);
+            box-shadow: 0 5px 15px rgba(36, 161, 222, 0.2);
         }
 
         /* --- Products Section --- */
@@ -308,7 +316,10 @@
         .form-wrapper {
             width: 100%;
             max-width: 500px;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            /* Ajustado */
+            margin-bottom: 4rem;
+            /* Mais espaço antes dos produtos */
         }
 
         .minimal-form {
@@ -548,6 +559,50 @@
                 aria-label="LinkedIn">
                 <i class="fa-brands fa-linkedin-in"></i>
             </a>
+            <a href="https://t.me/matheusgodoypro" target="_blank" class="social-btn telegram" aria-label="Telegram">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+        </div>
+
+        <!-- FORMULÁRIO (Agora antes dos produtos) -->
+        <div class="form-wrapper">
+            <h3 class="form-header">Have a Problem worth solving?</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                I am always looking for the next Micro-SaaS idea. If you have a repetitive problem that needs software,
+                tell me about it.
+            </p>
+
+            <form id="contactForm" class="minimal-form">
+
+                <div class="input-group">
+                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" class="input-field" placeholder="Email (for updates)" required>
+                </div>
+
+                <!-- Modificado: Descrição do Problema -->
+                <div class="input-group">
+                    <textarea id="project_details" class="input-field"
+                        placeholder="What is a problem you wish software could solve for you?" rows="3"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Send Idea
+                </button>
+            </form>
+
+            <div id="successMsg" class="feedback success">
+                <i class="fas fa-check-circle feedback-icon"></i>
+                <span class="feedback-title">Thanks!</span>
+                <span class="feedback-text">I've added your idea to my list. I'll let you know if I build it.</span>
+            </div>
+
+            <div id="errorMsg" class="feedback error">
+                Error sending. Please try again.
+            </div>
         </div>
 
         <!-- SEÇÃO DE PRODUTOS (PORTFÓLIO) -->
@@ -592,46 +647,6 @@
                     </div>
                 </a>
 
-            </div>
-        </div>
-
-        <div class="form-wrapper">
-            <h3 class="form-header">Have a Problem worth solving?</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                I am always looking for the next Micro-SaaS idea. If you have a repetitive problem that needs software,
-                tell me about it.
-            </p>
-
-            <form id="contactForm" class="minimal-form">
-
-                <div class="input-group">
-                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
-                </div>
-
-                <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Email (for updates)" required>
-                </div>
-
-                <!-- Modificado: Descrição do Problema -->
-                <div class="input-group">
-                    <textarea id="project_details" class="input-field"
-                        placeholder="What is a problem you wish software could solve for you?" rows="3"
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    Send Idea
-                </button>
-            </form>
-
-            <div id="successMsg" class="feedback success">
-                <i class="fas fa-check-circle feedback-icon"></i>
-                <span class="feedback-title">Thanks!</span>
-                <span class="feedback-text">I've added your idea to my list. I'll let you know if I build it.</span>
-            </div>
-
-            <div id="errorMsg" class="feedback error">
-                Error sending. Please try again.
             </div>
         </div>
 
