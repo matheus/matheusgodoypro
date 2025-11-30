@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Godoy | Indie Maker & Problem Solver</title>
+    <title>Matheus Godoy | SMB Solutions Architect</title>
 
     <!-- Meta Tags Essenciais para SEO -->
     <meta name="description"
-        content="Indie Maker building Micro-SaaS solutions for real-world problems. Check out my portfolio of tools and apps.">
+        content="I help SMBs eliminate operational bottlenecks with custom software solutions. Tell me your problem, and I'll build the fix.">
     <meta name="keywords"
-        content="matheus godoy, indie maker, micro-saas, software engineer, product builder, bitsimple, vitad">
+        content="matheus godoy, solopreneur, smb automation, custom software, business efficiency, process optimization">
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
 
@@ -21,7 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome Atualizado para v6.6.0 -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Favicon Links -->
@@ -156,74 +156,14 @@
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 600px;
+            /* Levemente aumentado para o novo texto */
             font-weight: 300;
         }
 
         .subtitle strong {
             color: var(--text-main);
             font-weight: 600;
-        }
-
-        /* --- Social Links --- */
-        .social-section {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--input-border);
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .social-btn:hover {
-            background: rgba(0, 143, 187, 0.1);
-            color: var(--accent-teal);
-            border-color: var(--accent-teal);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 143, 187, 0.2);
-        }
-
-        .social-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* Cores específicas para cada rede ao passar o mouse */
-        .social-btn.substack:hover {
-            color: #FF6719;
-            border-color: #FF6719;
-            background: rgba(255, 103, 25, 0.1);
-            box-shadow: 0 5px 15px rgba(255, 103, 25, 0.2);
-        }
-
-        .social-btn.telegram:hover {
-            color: #24A1DE;
-            border-color: #24A1DE;
-            background: rgba(36, 161, 222, 0.1);
-            box-shadow: 0 5px 15px rgba(36, 161, 222, 0.2);
-        }
-
-        .social-btn.reddit:hover {
-            color: #FF4500;
-            border-color: #FF4500;
-            background: rgba(255, 69, 0, 0.1);
-            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.2);
         }
 
         /* --- Products Section --- */
@@ -249,7 +189,6 @@
         .products-grid {
             display: grid;
             grid-template-columns: 1fr;
-            /* Mobile first: 1 coluna */
             gap: 1rem;
         }
 
@@ -303,7 +242,6 @@
 
         .product-card::after {
             content: '\f061';
-            /* Arrow right icon */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -325,9 +263,7 @@
             width: 100%;
             max-width: 500px;
             margin-top: 0.5rem;
-            /* Ajustado */
             margin-bottom: 4rem;
-            /* Mais espaço antes dos produtos */
         }
 
         .minimal-form {
@@ -340,7 +276,8 @@
             margin-bottom: 0.5rem;
             color: var(--text-main);
             font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            /* Leve aumento para destaque */
             text-transform: uppercase;
         }
 
@@ -362,7 +299,8 @@
         }
 
         textarea.input-field {
-            min-height: 100px;
+            min-height: 120px;
+            /* Mais altura para encorajar detalhamento */
             resize: vertical;
         }
 
@@ -411,7 +349,6 @@
             border-radius: 12px;
             text-align: center;
             display: none;
-            /* JS controla */
             animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
@@ -498,8 +435,6 @@
 
         /* Responsivo */
         @media (min-width: 600px) {
-
-            /* Grid de 3 colunas em telas maiores para os produtos */
             .products-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
@@ -543,45 +478,18 @@
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
 
-        <h1>Building Tools for<br>Real World Problems</h1>
+        <h1>What is Holding Your<br>Business Back Right Now?</h1>
 
         <p class="subtitle">
-            I'm a <strong>self-taught Indie Hacker</strong> and dad turning complex problems into simple Micro-SaaS
-            solutions. Check out my portfolio below.
+            Every company has that one painful process that eats up time and profit. I identify these friction points
+            and build <strong>automated solutions</strong> to eliminate them, so you can focus on scaling.
         </p>
 
-        <!-- Redes Sociais -->
-        <div class="social-section">
-            <a href="https://x.com/matheusgodoypro" target="_blank" class="social-btn x" aria-label="X (Twitter)">
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="https://matheusgodoypro.substack.com/" target="_blank" class="social-btn substack"
-                aria-label="Substack">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Substack</title>
-                    <path
-                        d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
-                </svg>
-            </a>
-            <a href="https://linkedin.com/in/matheusgodoy" target="_blank" class="social-btn linkedin"
-                aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://t.me/matheusgodoypro" target="_blank" class="social-btn telegram" aria-label="Telegram">
-                <i class="fa-brands fa-telegram"></i>
-            </a>
-            <a href="https://www.reddit.com/user/matheuslat/" target="_blank" class="social-btn reddit"
-                aria-label="Reddit">
-                <i class="fa-brands fa-reddit-alien"></i>
-            </a>
-        </div>
-
-        <!-- FORMULÁRIO (Agora antes dos produtos) -->
+        <!-- FORMULÁRIO -->
         <div class="form-wrapper">
-            <h3 class="form-header">Have a Problem worth solving?</h3>
+            <h3 class="form-header">Let's Eliminate That Bottleneck</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                I am always looking for the next Micro-SaaS idea. If you have a repetitive problem that needs software,
-                tell me about it.
+                Describe the specific operational pain point you are facing below.
             </p>
 
             <form id="contactForm" class="minimal-form">
@@ -591,25 +499,25 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Email (for updates)" required>
+                    <input type="email" id="email" class="input-field" placeholder="Business Email" required>
                 </div>
 
                 <!-- Modificado: Descrição do Problema -->
                 <div class="input-group">
                     <textarea id="project_details" class="input-field"
-                        placeholder="What is a problem you wish software could solve for you?" rows="3"
+                        placeholder="Example: We waste 10 hours a week copying data from emails to Excel..." rows="3"
                         required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    Send Idea
+                    Solve This Problem
                 </button>
             </form>
 
             <div id="successMsg" class="feedback success">
                 <i class="fas fa-check-circle feedback-icon"></i>
-                <span class="feedback-title">Thanks!</span>
-                <span class="feedback-text">I've added your idea to my list. I'll let you know if I build it.</span>
+                <span class="feedback-title">Request Received!</span>
+                <span class="feedback-text">I'll analyze your bottleneck and send a proposal soon.</span>
             </div>
 
             <div id="errorMsg" class="feedback error">
@@ -619,7 +527,7 @@
 
         <!-- SEÇÃO DE PRODUTOS (PORTFÓLIO) -->
         <div class="products-section">
-            <h3 class="section-title">My Portfolio</h3>
+            <h3 class="section-title">Examples of Problems Solved</h3>
             <div class="products-grid">
 
                 <!-- BitSimple -->
@@ -627,7 +535,7 @@
                     <i class="fa-brands fa-bitcoin product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">BitSimple</div>
-                        <p class="product-desc">Combined Bitcoin indicator for smarter buy/sell decisions.</p>
+                        <p class="product-desc">Simplified market analysis tool for crypto investors.</p>
                     </div>
                 </a>
 
@@ -636,8 +544,7 @@
                     <i class="fa-solid fa-chart-line product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">MetaWINFUT</div>
-                        <p class="product-desc">AI tool interpreting financial market impact on Mini-Index before news
-                            spreads.</p>
+                        <p class="product-desc">AI-powered market sentiment analysis for day traders.</p>
                     </div>
                 </a>
 
@@ -646,7 +553,7 @@
                     <i class="fa-regular fa-sun product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">VitaD</div>
-                        <p class="product-desc">Unlock your natural energy with the Sunshine Vitamin Calculator.</p>
+                        <p class="product-desc">Health optimization tool for calculating Vitamin D exposure.</p>
                     </div>
                 </a>
 
@@ -655,7 +562,7 @@
                     <i class="fa-solid fa-wallet product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">Kakeibo.Art</div>
-                        <p class="product-desc">Japanese method web app for mindful personal expense tracking.</p>
+                        <p class="product-desc">Mindful expense tracking application based on Japanese methods.</p>
                     </div>
                 </a>
 
@@ -676,14 +583,14 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            btn.innerText = 'SENDING...';
+            btn.innerText = 'ANALYZING...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
-            // Removi o campo "Company" pois é menos relevante para B2C/Indie Hacker
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
+                // Mantive a chave 'idea_suggestion' para compatibilidade com seu n8n
                 idea_suggestion: document.getElementById('project_details').value
             };
 
