@@ -659,11 +659,11 @@
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                // Mantive a chave 'idea_suggestion' para compatibilidade com seu n8n
-                idea_suggestion: document.getElementById('project_details').value
+                // Alterado de 'idea_suggestion' para 'problem'
+                problem: document.getElementById('project_details').value
             };
 
-            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/contact';
+            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/mg-contato';
 
             fetch(n8nWebhookUrl, {
                 method: 'POST',
