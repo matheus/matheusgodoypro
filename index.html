@@ -1,44 +1,44 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO TÍTULO: Otimizado para intenção de busca (O que você faz + Para quem) -->
-    <title>Matheus Godoy | Custom Software & Automation for SMBs</title>
+    <!-- SEO TÍTULO: Otimizado para PMEs brasileiras -->
+    <title>Matheus Godoy | Software Sob Medida e Automação para PMEs</title>
 
-    <!-- SEO META DESCRIPTION: Resumo focado em dor e solução -->
+    <!-- SEO META DESCRIPTION: Focado no mercado brasileiro -->
     <meta name="description"
-        content="I help Small and Mid-sized Businesses (SMBs) scale by eliminating operational bottlenecks with custom software and process automation. Solopreneur approach, agency quality.">
+        content="Ajudo Pequenas e Médias Empresas (PMEs) a escalar eliminando gargalos operacionais com software sob medida e automação de processos. Soluções ágeis para negócios reais.">
 
-    <!-- KEYWORDS: Mistura de termos técnicos e de negócio -->
+    <!-- KEYWORDS: Termos buscados no Brasil -->
     <meta name="keywords"
-        content="SMB automation, custom software development, business process optimization, indie hacker for business, operational efficiency, Matheus Godoy">
+        content="automação para PME, desenvolvimento de software, otimização de processos, sistemas sob medida, eficiência operacional, Matheus Godoy">
 
     <meta name="author" content="Matheus Godoy">
     <link rel="canonical" href="https://matheusgodoy.pro">
 
-    <!-- Open Graph (Para quando o link for compartilhado no LinkedIn/WhatsApp) -->
-    <meta property="og:title" content="Matheus Godoy | SMB Solutions Architect">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matheus Godoy | Soluções para PMEs">
     <meta property="og:description"
-        content="Stop drowning in manual operations. I build custom software to fix your business bottlenecks.">
+        content="Pare de perder tempo com processos manuais. Crio software sob medida para destravar seu negócio.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://matheusgodoy.pro">
     <meta property="og:image" content="assets/profile.png">
 
-    <!-- Schema.org JSON-LD: Dados Estruturados para o Google entender que é um Serviço Profissional -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "Matheus Godoy SMB Solutions",
+      "name": "Matheus Godoy Soluções PME",
       "image": "https://matheusgodoy.pro/assets/profile.png",
       "@id": "https://matheusgodoy.pro",
       "url": "https://matheusgodoy.pro",
       "priceRange": "$$$",
-      "description": "Custom software development and process automation services specialized for Small and Mid-sized Businesses.",
-      "knowsAbout": ["Process Automation", "Web Development", "Micro-SaaS", "Business Efficiency"],
+      "description": "Desenvolvimento de software sob medida e automação de processos especializados para Pequenas e Médias Empresas.",
+      "knowsAbout": ["Automação de Processos", "Desenvolvimento Web", "Micro-SaaS", "Eficiência Empresarial"],
       "founder": {
         "@type": "Person",
         "name": "Matheus Godoy"
@@ -67,7 +67,7 @@
 
     <style>
         :root {
-            /* Paleta Tech Noir (Restaurada) */
+            /* Paleta Tech Noir */
             --bg-color: #0b1015;
             --text-main: #ffffff;
             --text-muted: #cbd5e1;
@@ -192,7 +192,8 @@
             font-weight: 300;
         }
 
-        .subtitle strong {
+        /* Estilo para destacar o texto dentro de <span> */
+        .subtitle span {
             color: var(--text-main);
             font-weight: 600;
         }
@@ -242,7 +243,6 @@
             border-color: var(--accent-teal);
             transform: translateX(5px);
             box-shadow: none;
-            /* Reset shadow for dark mode simplicity or specific effect */
         }
 
         .product-icon {
@@ -369,7 +369,6 @@
             padding: 1.2rem;
             background-color: var(--text-main);
             color: var(--bg-color);
-            /* Texto escuro no botão claro */
             font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
@@ -524,67 +523,87 @@
             <img src="assets/profile.png" alt="Matheus Godoy" class="avatar">
         </div>
 
-        <h1>What is Holding Your<br>Business Back Right Now?</h1>
+        <h1>O Que Está Travando o<br>Crescimento da Sua Empresa?</h1>
 
-        <!-- Otimização de Texto: Incluindo a palavra-chave completa "Small and Mid-sized Businesses" -->
+        <!-- Substituído ** por <span> -->
         <p class="subtitle">
-            Every company has that one painful process that eats up time and profit. I help <strong>Small and Mid-sized
-                Businesses (SMBs)</strong> identify these friction points and build <strong>automated solutions</strong>
-            to eliminate them, so you can focus on scaling.
+            Toda empresa tem aquele processo doloroso que consome tempo e lucro. Eu ajudo <span>Pequenas e Médias
+                Empresas (PMEs)</span> a identificar esses pontos de atrito e crio <span>soluções automatizadas</span>
+            para eliminá-los, para que você foque em escalar.
         </p>
 
         <!-- FORMULÁRIO -->
         <div class="form-wrapper fade-in-section">
-            <h3 class="form-header">Let's Eliminate That Bottleneck</h3>
+            <h3 class="form-header">Vamos Eliminar Esse Gargalo</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
-                Describe the specific operational pain point you are facing below.
+                Descreva abaixo a dor operacional específica que você está enfrentando.
             </p>
 
             <form id="contactForm" class="minimal-form">
 
                 <div class="input-group">
-                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
+                    <input type="text" id="name" class="input-field" placeholder="Seu Nome" required>
                 </div>
 
                 <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Email" required>
+                    <input type="email" id="email" class="input-field" placeholder="E-mail" required>
                 </div>
 
                 <!-- Modificado: Descrição do Problema -->
                 <div class="input-group">
                     <textarea id="project_details" class="input-field"
-                        placeholder="Example: We waste 10 hours a week copying data from emails to Excel..." rows="3"
-                        required></textarea>
+                        placeholder="Exemplo: Perdemos 10 horas por semana copiando dados de e-mails para o Excel..."
+                        rows="3" required></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">
-                    Solve This Problem
+                    Resolver Esse Problema
                 </button>
             </form>
 
             <div id="successMsg" class="feedback success">
                 <i class="fas fa-check-circle feedback-icon"></i>
-                <span class="feedback-title">Request Received!</span>
-                <span class="feedback-text">I'll analyze your bottleneck and send a proposal soon.</span>
+                <span class="feedback-title">Solicitação Recebida!</span>
+                <span class="feedback-text">Vou analisar seu gargalo e enviar uma proposta em breve.</span>
             </div>
 
             <div id="errorMsg" class="feedback error">
-                Error sending. Please try again.
+                Erro ao enviar. Por favor, tente novamente.
             </div>
         </div>
 
         <!-- SEÇÃO DE PRODUTOS (PORTFÓLIO) -->
-        <!-- Adicionada a classe 'fade-in-section' para animar esta seção também -->
         <div class="products-section fade-in-section">
-            <h3 class="section-title">Examples of Problems Solved</h3>
+            <h3 class="section-title">Exemplos de Problemas Resolvidos</h3>
             <div class="products-grid">
+
+                <!-- Minha CNH (Novo) -->
+                <a href="https://habilita.autos/minhacnh/" target="_blank" class="product-card">
+                    <i class="fa-solid fa-id-card product-icon"></i>
+                    <div class="product-info">
+                        <div class="product-name">Minha CNH</div>
+                        <p class="product-desc">Aplicação web onde candidatos acompanham todo o processo da primeira
+                            habilitação.</p>
+                    </div>
+                </a>
+
+                <!-- Autoescola Aline (Novo) -->
+                <a href="https://autoescolaaline.com.br/" target="_blank" class="product-card">
+                    <i class="fa-solid fa-car product-icon"></i>
+                    <div class="product-info">
+                        <div class="product-name">Autoescola Aline</div>
+                        <p class="product-desc">Landing Page de alta conversão otimizada para captação de novos alunos
+                            locais.</p>
+                    </div>
+                </a>
 
                 <!-- BitSimple -->
                 <a href="https://bitsimple.netlify.app/" target="_blank" class="product-card">
                     <i class="fa-brands fa-bitcoin product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">BitSimple</div>
-                        <p class="product-desc">Simplified market analysis tool for crypto investors.</p>
+                        <p class="product-desc">Ferramenta simplificada de análise de mercado para investidores cripto.
+                        </p>
                     </div>
                 </a>
 
@@ -593,7 +612,7 @@
                     <i class="fa-solid fa-chart-line product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">MetaWINFUT</div>
-                        <p class="product-desc">AI-powered market sentiment analysis for day traders.</p>
+                        <p class="product-desc">Análise de sentimento de mercado com IA para day traders.</p>
                     </div>
                 </a>
 
@@ -602,7 +621,8 @@
                     <i class="fa-regular fa-sun product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">VitaD</div>
-                        <p class="product-desc">Health optimization tool for calculating Vitamin D exposure.</p>
+                        <p class="product-desc">Ferramenta de otimização de saúde para cálculo de exposição à Vitamina
+                            D.</p>
                     </div>
                 </a>
 
@@ -611,7 +631,7 @@
                     <i class="fa-solid fa-wallet product-icon"></i>
                     <div class="product-info">
                         <div class="product-name">Kakeibo.Art</div>
-                        <p class="product-desc">Mindful expense tracking application based on Japanese methods.</p>
+                        <p class="product-desc">App de controle financeiro consciente baseado no método japonês.</p>
                     </div>
                 </a>
 
@@ -632,7 +652,7 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            btn.innerText = 'ANALYZING...';
+            btn.innerText = 'ANALISANDO...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
