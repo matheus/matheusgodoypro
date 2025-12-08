@@ -187,7 +187,7 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             max-width: 600px;
             font-weight: 300;
         }
@@ -296,7 +296,7 @@
             width: 100%;
             max-width: 500px;
             margin-top: 0.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
         }
 
         /* Estilo para a animação de scroll */
@@ -514,7 +514,9 @@
 
 <body>
 
-    <div class="container">
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="container" style="position: relative; z-index: 1;">
         <div class="top-name">Matheus Godoy</div>
 
         <div class="avatar-container">
@@ -649,7 +651,112 @@
 
     </div>
 
+    <style>
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+    </style>
+
     <script>
+        // Particle Network Animation
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        // Configuration
+        const particleCount = 60; // Few particles for discreet look
+        const connectionDistance = 150;
+        const moveSpeed = 0.5;
+
+        // Colors from CSS
+        const colors = ['#008FBB', '#EA4B71', '#cbd5e1'];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * moveSpeed;
+                this.vy = (Math.random() - 0.5) * moveSpeed;
+                this.size = Math.random() * 2 + 1;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.update();
+                p.draw();
+
+                // Draw connections
+                for (let j = i + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dx = p.x - p2.x;
+                    let dy = p.y - p2.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(100, 116, 139, ${1 - dist / connectionDistance})`; // Muted slate color
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+        });
+
+        // Init
+        resize();
+        initParticles();
+        animate();
+
+
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
