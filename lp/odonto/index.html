@@ -149,6 +149,16 @@
             color: var(--accent);
         }
 
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
         /* --- Hero --- */
         .hero {
             padding-top: 140px;
@@ -267,6 +277,56 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
+            /* Header Response */
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+                display: none;
+                /* Hidden by default */
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .header-cta {
+                display: none;
+                /* Hide CTA in header on mobile to save space, assuming it's in Hero */
+            }
+
+            /* Footer Responsive */
+            .footer-flex {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px !important;
+            }
+
+            .footer-hours {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -275,17 +335,24 @@
 
     <!-- Header -->
     <header>
-        <div class="container flex-between">
+        <div class="container flex-between" style="position: relative;">
             <a href="#" class="logo"><i class="fas fa-tooth"></i> Confident</a>
+
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#">Início</a></li>
                     <li><a href="#">Serviços</a></li>
                     <li><a href="#">Doutores</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
             </nav>
-            <a href="#" class="btn btn-primary">Agendar <i class="fas fa-arrow-right"></i></a>
+
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <a href="#" class="btn btn-primary header-cta">Agendar <i class="fas fa-arrow-right"></i></a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -484,11 +551,11 @@
                         Melhor</span></h2>
             </div>
 
-            <div class="flex-between"
+            <div class="flex-between footer-flex"
                 style="border-top: 1px solid rgba(0,0,0,0.05); padding-top: 40px; flex-wrap: wrap; gap: 20px;">
                 <div class="logo"><i class="fas fa-tooth"></i> Confident</div>
 
-                <div style="display: flex; gap: 40px; color: var(--text-dark); font-weight: 500;">
+                <div class="footer-links" style="display: flex; gap: 40px; color: var(--text-dark); font-weight: 500;">
                     <a href="#">Início</a>
                     <a href="#">Doutores</a>
                     <a href="#">Serviços</a>
@@ -496,7 +563,7 @@
                     <a href="#">Licença</a>
                 </div>
 
-                <div style="display: flex; align-items: center; gap: 15px;">
+                <div class="footer-hours" style="display: flex; align-items: center; gap: 15px;">
                     <div
                         style="background: #fff; padding: 10px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
                         <i class="far fa-clock" style="color: var(--accent);"></i>
@@ -513,6 +580,14 @@
             </div>
         </div>
     </footer>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
