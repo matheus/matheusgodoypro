@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Pages de Alta Conversão | Matheus Godoy</title>
+
+    <!-- Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #030305;
+            --text-main: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #5ce1e6;
+            /* Cyan futuristic */
+            --accent-glow: rgba(92, 225, 230, 0.4);
+            --surface: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* --- Animations --- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 70vh;
+            /* Reduced from fixed 100vh */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: url('./assets/hero_bg.png') no-repeat center center/cover;
+            padding: 8rem 2rem 4rem;
+            /* Adjusted padding */
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(3, 3, 5, 0.3), var(--bg));
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.0;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            padding: 16px 36px;
+            background: var(--text-main);
+            color: var(--bg);
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+            background: var(--accent);
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 40px 20px;
+            /* Reduced from 60px */
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            background: linear-gradient(180deg, #fff, #444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Benefits --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(92, 225, 230, 0.1);
+        }
+
+        .benefit-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* --- Process (Timeline) --- */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-align: left;
+            background: linear-gradient(90deg, var(--surface), transparent);
+            padding: 30px;
+            border-radius: 100px;
+            /* Pill shape */
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+        }
+
+        @media(max-width: 768px) {
+            .step {
+                flex-direction: column;
+                text-align: center;
+                border-radius: 20px;
+            }
+        }
+
+        /* --- Portfolio --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .portfolio-item {
+            text-decoration: none;
+            color: #fff;
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+            position: relative;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Using generic placeholders until specific screenshots are available */
+        }
+
+        /* Using gradients for portfolio placeholders if image content fails */
+        .mock-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #111, #222);
+        }
+
+        /* --- CTA Footer --- */
+        .cta-footer {
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, rgba(92, 225, 230, 0.1), transparent 70%);
+        }
+
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid var(--text-main);
+            padding: 40px;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .cta-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            /* Tighter line height */
+        }
+
+        .cta-box p {
+            color: #ccc;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.4;
+            /* Tighter description */
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid var(--accent);
+            border-left: 2px solid var(--accent);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            border-bottom: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+        }
+
+        @media(max-width: 480px) {
+            .btn-cta {
+                font-size: 0.9rem;
+                /* Smaller font for mobile */
+                padding: 14px 20px;
+                /* Reduced padding */
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content fade-up">
+            <h1>Transforme Cliques<br>em Vendas</h1>
+            <p>Não perca mais clientes com sites lentos. Tenha uma página otimizada para converter visitantes em lucro
+                real.</p>
+            <a href="#como-faco" class="btn-cta">Quero Vender Mais <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </header>
+
+    <!-- Benefits -->
+    <section>
+        <h2 class="section-title fade-up">Por Que Landing Page?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card fade-up">
+                <i class="fas fa-rocket"></i>
+                <h3>Foco em Conversão</h3>
+                <p>Diferente de um site comum, aqui só existe um objetivo: transformar visitantes em clientes.</p>
+            </div>
+            <div class="benefit-card fade-up">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Design Mobile First</h3>
+                <p>Perfeito em qualquer tela. 80% do seu tráfego vem do celular, nós garantimos que a experiência seja
+                    impecável.</p>
+            </div>
+            <div class="benefit-card fade-up">
+                <i class="fas fa-bolt"></i>
+                <h3>Velocidade Extrema</h3>
+                <p>Otimização de ponta. Cada segundo a menos no carregamento aumenta suas vendas em 20%.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="como-faco">
+        <h2 class="section-title fade-up">Processo de Criação</h2>
+        <div class="process-steps">
+            <div class="step fade-up">
+                <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <div class="step-content">
+                    <h3>1. Blueprint & V1</h3>
+                    <p>Você paga 50% de entrada. Eu desenvolvo a estrutura, copy e design da primeira versão completa.
+                    </p>
+                </div>
+            </div>
+            <div class="step fade-up">
+                <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="step-content">
+                    <h3>2. Refinamento</h3>
+                    <p>Ajustamos detalhes, cores e textos com base no seu feedback até ficar perfeito.</p>
+                </div>
+            </div>
+            <div class="step fade-up">
+                <div class="step-icon"><i class="fas fa-rocket"></i></div>
+                <div class="step-content">
+                    <h3>3. Lançamento</h3>
+                    <p>Entrega final, configuração de domínio e pagamento dos 50% restantes. Seu negócio no ar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section>
+        <h2 class="section-title fade-up">Projetos Recentes</h2>
+        <div class="portfolio-grid">
+            <a href="https://metawinfut.libertax.com.br" target="_blank" class="portfolio-item fade-up">
+                <div style="padding: 20px; text-align: center;">
+                    <i class="fas fa-chart-line" style="font-size: 3rem; color: #5ce1e6; margin-bottom: 10px;"></i>
+                    <h3 style="margin: 0;">MetaWin</h3>
+                    <p style="color: #aaa;">DayTrading & Analytics</p>
+                </div>
+            </a>
+            <a href="https://autoescolaaline.com.br" target="_blank" class="portfolio-item fade-up">
+                <div style="padding: 20px; text-align: center;">
+                    <i class="fas fa-car" style="font-size: 3rem; color: #5ce1e6; margin-bottom: 10px;"></i>
+                    <h3 style="margin: 0;">Autoescola Aline</h3>
+                    <p style="color: #aaa;">Captação de Alunos</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-footer">
+        <div class="cta-box fade-up">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Pronto para vender mais?</h2>
+            <p style="color: #ccc; margin-bottom: 3rem; font-size: 1.1rem;">Não deixe dinheiro na mesa com um site lento
+                e confuso.</p>
+            <a href="https://wa.me/5516997227990" class="btn-cta" style="background: #25D366; color: #fff;">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
