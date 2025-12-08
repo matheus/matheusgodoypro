@@ -237,6 +237,37 @@
                 transform: translateY(0px);
             }
         }
+
+        /* --- Mobile Responsive --- */
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .contact-main-box {
+                padding: 30px !important;
+                gap: 40px !important;
+            }
+
+            .contact-form-box {
+                padding: 25px !important;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -401,7 +432,7 @@
 
     <!-- Contact Section -->
     <section class="container" style="padding: 80px 20px;">
-        <div
+        <div class="contact-main-box"
             style="background: linear-gradient(135deg, #EEF9FE 0%, #fff 100%); border-radius: 40px; padding: 60px; display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
 
             <div style="flex: 1; min-width: 300px;">
@@ -418,10 +449,10 @@
                 </div>
             </div>
 
-            <div
+            <div class="contact-form-box"
                 style="flex: 1.5; min-width: 300px; background: #fff; padding: 40px; border-radius: 30px; box-shadow: var(--shadow-soft);">
                 <form style="display: flex; flex-direction: column; gap: 20px;">
-                    <div style="display: flex; gap: 20px;">
+                    <div class="form-row">
                         <input type="text" placeholder="Nome"
                             style="flex: 1; padding: 15px; border-radius: 10px; border: 1px solid #eee; background: #F9FAFB;">
                         <input type="email" placeholder="E-mail"
