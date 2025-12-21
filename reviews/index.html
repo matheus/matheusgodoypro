@@ -110,10 +110,15 @@
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
+            let website = document.getElementById('bizWebsite').value.trim();
+            if (website && !/^https?:\/\//i.test(website)) {
+                website = 'https://' + website;
+            }
+
             const formData = {
                 fullName: document.getElementById('fullName').value,
                 email: document.getElementById('bizEmail').value,
-                website: document.getElementById('bizWebsite').value,
+                website: website,
                 source: 'Reviews LP - Minimal'
             };
 
