@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="url" id="bizWebsite" class="input-field" placeholder="Website URL (Optional)">
+                    <input type="text" id="bizWebsite" class="input-field" placeholder="Website URL (Optional)">
                 </div>
 
                 <button type="submit" class="btn-cta" style="display: block; margin: 1.5rem auto 0;">
@@ -118,7 +118,7 @@
             };
 
             // Using the requested test webhook
-            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook-test/reviews';
+            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/reviews';
 
             fetch(n8nWebhookUrl, {
                 method: 'POST',
