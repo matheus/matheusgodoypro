@@ -24,36 +24,24 @@ body {
 
 /* Typography */
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
+    /* Reduced from 3.5rem for mobile safety */
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 0.5rem;
-    /* Tight spacing for sub-elements */
     color: var(--text-primary);
 }
 
-h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-    text-align: center;
-}
-
-p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
+/* ... */
 
 /* Layout */
 .container {
-    width: 100%;
+    width: 85%;
+    /* Guarantees 7.5% margin on each side */
     max-width: 640px;
-    /* Mobile-first focus */
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0;
 }
 
 /* Header */
