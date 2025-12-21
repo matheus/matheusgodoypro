@@ -10,7 +10,7 @@ const connectionDistance = 150;
 const moveSpeed = 0.5;
 
 // Colors from CSS
-const colors = ['#008FBB', '#EA4B71', '#cbd5e1'];
+const colors = ['#008FBB', '#EA4B71', '#475569'];
 
 function resize() {
     width = canvas.width = window.innerWidth;

@@ -1,14 +1,14 @@
 :root {
-    /* Paleta Tech Noir */
-    --bg-color: #0b1015;
-    --text-main: #ffffff;
-    --text-muted: #cbd5e1;
+    /* Light Theme Palette */
+    --bg-color: #ffffff;
+    --text-main: #0b1015;
+    --text-muted: #475569;
 
     --accent-teal: #008FBB;
     /* Deep Cerulean */
     --accent-coral: #EA4B71;
 
-    --input-border: #1f2933;
+    --input-border: #cbd5e1;
     --input-focus: #008FBB;
 }
 
@@ -157,7 +157,7 @@ h1 {
 }
 
 .product-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(0, 0, 0, 0.02);
     border: 1px solid var(--input-border);
     border-radius: 12px;
     padding: 1.5rem;
@@ -265,7 +265,7 @@ h1 {
 
 .input-field {
     width: 100%;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.08);
     border: 1px solid var(--input-border);
     border-radius: 8px;
     padding: 1rem;
@@ -281,7 +281,7 @@ textarea.input-field {
 }
 
 .input-field::placeholder {
-    color: #64748b;
+    color: #94a3b8;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
