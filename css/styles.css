@@ -1,0 +1,455 @@
+:root {
+    /* Paleta Tech Noir */
+    --bg-color: #0b1015;
+    --text-main: #ffffff;
+    --text-muted: #cbd5e1;
+
+    --accent-teal: #008FBB;
+    /* Deep Cerulean */
+    --accent-coral: #EA4B71;
+
+    --input-border: #1f2933;
+    --input-focus: #008FBB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Header --- */
+.top-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.avatar-container {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 2.5rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-teal);
+    box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--accent-coral), 0 15px 40px rgba(0, 0, 0, 0.6);
+    background: radial-gradient(circle at center, #1a2633 0%, var(--bg-color) 80%);
+    z-index: 2;
+    position: relative;
+}
+
+.orbital-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+    pointer-events: none;
+}
+
+.orbital-dot::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-teal);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-teal);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Tipografia --- */
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* Estilo para destacar o texto dentro de <span> */
+.subtitle span {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* --- Products Section --- */
+.products-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 3.5rem;
+    text-align: left;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--accent-coral);
+    padding-left: 12px;
+    display: inline-block;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    background: rgba(0, 143, 187, 0.05);
+    border-color: var(--accent-teal);
+    transform: translateX(5px);
+    box-shadow: none;
+}
+
+.product-icon {
+    font-size: 1.8rem;
+    color: var(--accent-teal);
+    min-width: 40px;
+    text-align: center;
+    padding-top: 0.2rem;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+.product-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.product-card::after {
+    content: '\f061';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--accent-teal);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.product-card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Formulário --- */
+.form-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 0.5rem;
+    margin-bottom: 6rem;
+}
+
+/* Estilo para a animação de scroll */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.minimal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-header {
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+}
+
+.input-group {
+    position: relative;
+    text-align: left;
+}
+
+.input-field {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-main);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+textarea.input-field {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.input-field::placeholder {
+    color: #64748b;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+    background: rgba(0, 143, 187, 0.05);
+    box-shadow: none;
+}
+
+/* Botão CTA */
+.btn-submit {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-teal);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -5px rgba(0, 143, 187, 0.4);
+}
+
+/* Mensagens */
+.feedback {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    display: none;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.feedback.success {
+    background: linear-gradient(135deg, rgba(0, 143, 187, 0.15), rgba(0, 143, 187, 0.05));
+    border: 1px solid var(--accent-teal);
+    box-shadow: 0 10px 40px -10px rgba(0, 143, 187, 0.3);
+}
+
+.feedback.success::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-teal);
+}
+
+.feedback-icon {
+    font-size: 3rem;
+    color: var(--accent-teal);
+    margin-bottom: 1rem;
+    display: block;
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0.7));
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px rgba(0, 143, 187, 0));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0 rgba(0, 143, 187, 0));
+    }
+}
+
+.feedback-title {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.feedback-text {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.feedback.error {
+    background: rgba(234, 75, 113, 0.1);
+    border: 1px solid var(--accent-coral);
+    color: var(--accent-coral);
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Responsivo */
+@media (min-width: 600px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .product-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .product-icon {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .container {
+        padding: 3rem 1.5rem;
+    }
+}
+
+/* Canvas override from separated style block */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
