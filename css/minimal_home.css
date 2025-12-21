@@ -78,6 +78,19 @@ header {
     margin-top: 1rem;
 }
 
+.hero-avatar {
+    width: 8em;
+    height: 8em;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 3px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 82, 255, 0.15);
+    /* Soft blue shadow */
+    background-color: #f3f4f6;
+}
+
 .stars {
     color: #F59E0B;
     /* Amber 500 */
