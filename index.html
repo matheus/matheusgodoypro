@@ -39,44 +39,9 @@
         <p>You are wasting hours on manual tasks. We build custom AI software that runs your operations for
             you—automatically.</p>
 
-        <a href="#contact" class="btn-cta">START MY FREE ANALYSIS</a>
-    </section>
-
-    <section class="container">
-        <h2>What You Get</h2>
-        <ul class="features-list">
-            <li>
-                <span class="check">✓</span>
-                <div>
-                    <strong>Remove Operational Bottlenecks</strong>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">Stop copying
-                        data between spreadsheets. Let AI do the heavy lifting.</div>
-                </div>
-            </li>
-            <li>
-                <span class="check">✓</span>
-                <div>
-                    <strong>Custom Software, Not Templates</strong>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">We build exactly
-                        what your specific business needs to grow.</div>
-                </div>
-            </li>
-            <li>
-                <span class="check">✓</span>
-                <div>
-                    <strong>Measurable ROI in 30 Days</strong>
-                    <div style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem;">See instant cost
-                        reductions and efficiency gains.</div>
-                </div>
-            </li>
-        </ul>
-    </section>
-
-    <section id="contact" class="container">
+        <!-- Form Embedded in Hero -->
         <div class="form-section">
-            <h2>Get Your Automation Plan</h2>
-            <p style="text-align: center;">Tell us about your biggest bottleneck.</p>
-
+            <h2>Tell me about your biggest bottleneck.</h2>
             <form id="homeForm">
                 <div class="input-group">
                     <input type="text" id="name" class="input-field" placeholder="Your Name" required>
@@ -85,16 +50,15 @@
                     <input type="email" id="email" class="input-field" placeholder="Company Email" required>
                 </div>
                 <div class="input-group">
-                    <textarea id="project_details" class="input-field"
-                        placeholder="Describe the process you want to automate..." required></textarea>
+                    <textarea id="message" class="input-field" placeholder="Message" required></textarea>
                 </div>
 
-                <button type="submit" class="btn-cta">GET MY PLAN NOW</button>
+                <button type="submit" class="btn-cta">SEND MESSAGE</button>
             </form>
 
             <div id="successMsg"
                 style="display:none; text-align: center; margin-top: 1.5rem; color: #059669; font-weight: bold;">
-                Request Received! We'll be in touch shortly.
+                Request Received! I'll be in touch shortly.
             </div>
 
             <div id="errorMsg" style="display:none; text-align: center; margin-top: 1.5rem; color: #dc2626;">
@@ -102,6 +66,7 @@
             </div>
         </div>
     </section>
+
 
     <footer>
         <p>&copy; 2025 Matheus Godoy. All rights reserved.</p>
@@ -119,18 +84,18 @@
             successMsg.style.display = 'none';
             errorMsg.style.display = 'none';
 
-            btn.innerText = 'ANALYZING...';
+            btn.innerText = 'SENDING...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                problem: document.getElementById('project_details').value,
+                message: document.getElementById('message').value,
                 source: 'Home Page - Bold Minimal'
             };
 
-            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/mg-contato';
+            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook-test/mg-contato';
 
             fetch(n8nWebhookUrl, {
                 method: 'POST',
