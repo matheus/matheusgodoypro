@@ -1,83 +1,616 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Godoy | SMB Automation</title>
-    <meta name="description"
-        content="Scale your business without hiring more people. Custom automation software for SMBs.">
+    <title>Matheus Godoy | Automated Cloud Workflows for SMBs</title>
 
-    <!-- Fonts -->
+    <meta name="description"
+        content="Scale your business with Matheus Godoy. Specialist in Make.com and n8n. Smart Migration from Zapier and Google Maps Reputation automation.">
+    <meta name="keywords"
+        content="Make.com automation, Zapier to Make migration, Google Maps automation, business process automation, matheusgodoy.pro">
+    <link rel="canonical" href="https://matheusgodoy.pro">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/minimal_home.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #6E4AFF;
+            --dark: #110B31;
+            --bg: #F8F9FB;
+            --text: #110B31;
+            --grey: #5A5A75;
+            --border: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px 60px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2.5px;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+
+        .subheadline {
+            font-size: 1.3rem;
+            color: var(--grey);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .argument {
+            font-size: 1.1rem;
+            color: var(--grey);
+            margin-bottom: 40px;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .social-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px;
+            border-radius: 10px;
+            color: var(--dark);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .social-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(110, 74, 255, 0.2);
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            background: white;
+            /* Ensure no transparent gaps */
+        }
+
+        .orbit-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 160px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: orbit 20s linear infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .connection-arm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+        }
+
+        .connection-dot {
+            position: absolute;
+            left: 85px;
+            /* Radius of orbit */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .connection-line {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 2px;
+            background: var(--primary);
+            width: 0;
+            transform-origin: left center;
+        }
+
+        .arm-1 {
+            transform: rotate(0deg);
+        }
+
+        .arm-2 {
+            transform: rotate(120deg);
+        }
+
+        .arm-3 {
+            transform: rotate(240deg);
+        }
+
+        .arm-1 .connection-line {
+            animation: connect 4s ease-in-out infinite;
+        }
+
+        .arm-2 .connection-line {
+            animation: connect 5s ease-in-out infinite 1s;
+        }
+
+        .arm-3 .connection-line {
+            animation: connect 4.5s ease-in-out infinite 2s;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(110, 74, 255, 0.5);
+        }
+
+        /* Positioning dots at 0, 120, 240 degrees */
+        /* r = 80px (half of 160px) */
+        /* top/left calculations based on center (80, 80) */
+
+        /* Dot 1: Top Center (0 deg) */
+        .orbit-dot:nth-child(1) {
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Dot 2: Bottom Right (120 deg) */
+        .orbit-dot:nth-child(2) {
+            top: 65%;
+            right: 2%;
+        }
+
+        /* Dot 3: Bottom Left (240 deg) */
+        .orbit-dot:nth-child(3) {
+            top: 65%;
+            left: 2%;
+        }
+
+        @keyframes orbit {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes connect {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+
+            10% {
+                width: 0;
+                opacity: 1;
+            }
+
+            30% {
+                width: 85px;
+            }
+
+            /* Connect to dot */
+            70% {
+                width: 85px;
+                opacity: 1;
+            }
+
+            /* Hold */
+            90% {
+                opacity: 0;
+            }
+
+            100% {
+                width: 0;
+                opacity: 0;
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -1.5px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* Make-style Visual Nodes */
+        .node-icon {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .node {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 15px rgba(110, 74, 255, 0.3);
+        }
+
+        .line {
+            width: 30px;
+            height: 3px;
+            background: #CBD5E0;
+            border-radius: 2px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--grey);
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .feature-list i {
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .price-tag {
+            background: #F1EDFF;
+            color: var(--primary);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Form Styling */
+        .form-container {
+            background: var(--dark);
+            padding: 40px;
+            border-radius: 32px;
+            text-align: left;
+            color: white;
+        }
+
+        .form-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        /* Radio Options */
+        .radio-option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            transition: 0.2s;
+        }
+
+        .radio-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .radio-option input {
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 14px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(110, 74, 255, 0.3);
+        }
+
+        footer {
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: var(--grey);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="container">
-        <a href="/" class="logo">matheusgodoy.pro</a>
-    </header>
+    <div class="container">
+        <p style="font-weight: 700; color: var(--primary); margin-bottom: 80px; padding-top: 20px;">matheusgodoy.pro</p>
 
-    <section class="hero container">
-        <!-- Brand/Person -->
-        <img src="assets/profile.png" alt="Matheus Godoy" class="hero-avatar">
 
-        <!-- H1: Benefit Focused -->
-        <h1>Scale Your Business Without Hiring More People.</h1>
 
-        <!-- Social Proof immediately below title -->
-        <div class="social-proof">
-            <span class="stars">★★★★★</span>
-            <span>Trusted by 50+ Growing SMBs</span>
+        <div class="profile-wrapper">
+            <img src="assets/profile.png" alt="Matheus Godoy" class="profile-pic">
+            <div class="orbit-ring">
+                <!-- Connection 1 -->
+                <div class="connection-arm arm-1">
+                    <div class="connection-line"></div>
+                    <div class="connection-dot"></div>
+                </div>
+                <!-- Connection 2 -->
+                <div class="connection-arm arm-2">
+                    <div class="connection-line"></div>
+                    <div class="connection-dot"></div>
+                </div>
+                <!-- Connection 3 -->
+                <div class="connection-arm arm-3">
+                    <div class="connection-line"></div>
+                    <div class="connection-dot"></div>
+                </div>
+            </div>
         </div>
 
-        <p>You are wasting hours on manual tasks. We build custom AI software that runs your operations for
-            you—automatically.</p>
+        <h1>Scale Your Business Without Hiring More People</h1>
+        <p class="subheadline">I help SMBs reduce operational costs while growing through 100% automated cloud
+            workflows.</p>
 
-        <!-- Form Embedded in Hero -->
-        <div class="form-section">
-            <h2>Tell me about your biggest bottleneck.</h2>
-            <form id="homeForm">
-                <div class="input-group">
-                    <input type="text" id="name" class="input-field" placeholder="Your Name" required>
+        <div class="social-links">
+            <a href="#" class="social-btn"><i data-lucide="linkedin"></i></a>
+            <a href="#" class="social-btn"><i data-lucide="book-open"></i></a>
+            <a href="#" class="social-btn"><i data-lucide="twitter"></i></a>
+        </div>
+
+        <section class="services-section">
+            <h2 class="section-title">Specialized Services</h2>
+
+            <div class="service-card">
+                <div class="node-icon">
+                    <div class="node"><i data-lucide="zap-off" size="20"></i></div>
+                    <div class="line"></div>
+                    <div class="node"><i data-lucide="refresh-cw" size="20"></i></div>
                 </div>
-                <div class="input-group">
-                    <input type="email" id="email" class="input-field" placeholder="Company Email" required>
+                <h3>Smart Migration: Slash Costs by 80%</h3>
+                <p>Migration from Zapier to <strong>Make.com</strong>—re-architecting your entire logic for a platform
+                    that is more robust and infinitely more cost-effective.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="check-circle-2"></i> <strong>Workflow Audit:</strong> Identification of “wasted
+                        tasks” inflating your bill.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Infrastructure Optimization:</strong> Zero-cost
+                        Instant Webhooks.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Zero Risk:</strong> If I don’t reduce your costs,
+                        you don’t pay.</li>
+                </ul>
+                <div class="price-tag">ROI-Based: My fee is a portion of the actual savings generated.</div>
+            </div>
+
+            <div class="service-card">
+                <div class="node-icon">
+                    <div class="node"><i data-lucide="map-pin" size="20"></i></div>
+                    <div class="line"></div>
+                    <div class="node" style="background: #fbbf24;"><i data-lucide="star" size="20"></i></div>
                 </div>
+                <h3>Google Maps Authority: 5-Star Reputation</h3>
+                <p>Automated Feedback Loops to build trust. Redirect happy customers to Google and keep constructive
+                    criticism private.</p>
+                <ul class="feature-list">
+                    <li><i data-lucide="check-circle-2"></i> <strong>Sentiment Filter:</strong> Smart redirection logic
+                        for reviews.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>SEO Value:</strong> Higher local search positions
+                        via feedback volume.</li>
+                    <li><i data-lucide="check-circle-2"></i> <strong>Set and Forget:</strong> Fully automated 24/7 cloud
+                        system.</li>
+                </ul>
+                <div class="price-tag">Fixed Investment: $297.00 (One-time setup)</div>
+            </div>
+        </section>
+
+        <div class="form-container">
+            <h2>Start Growing Efficiently</h2>
+            <form id="contactForm" action="#">
                 <div class="input-group">
-                    <textarea id="message" class="input-field" placeholder="Message" required></textarea>
+                    <label>Your Name</label>
+                    <input type="text" id="name" placeholder="How should I call you?" required>
                 </div>
 
-                <button type="submit" class="btn-cta">SEND MESSAGE</button>
+                <div class="input-group">
+                    <label>Work Email</label>
+                    <input type="email" id="email" placeholder="Where should I send the efficiency report?" required>
+                </div>
+
+                <div class="input-group">
+                    <label>What do you need to solve right now?</label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="migration" required>
+                        Smart Migration (Slash Zapier Costs)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="reputation">
+                        Google Maps Authority (Reputation & SEO)
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="service" value="custom">
+                        Custom AI / Automation Workflow
+                    </label>
+                </div>
+
+                <div class="input-group">
+                    <label>How can I help you scale?</label>
+                    <textarea id="description"
+                        placeholder="Describe the manual process you want to kill or the Zapier bill that is hurting your margins..."></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">
+                    Claim My Free Efficiency Audit
+                    <i data-lucide="chevron-right"></i>
+                </button>
+
+                <div id="successMsg"
+                    style="display:none; text-align: center; margin-top: 1.5rem; color: #059669; font-weight: bold;">
+                    Request Received! I'll be in touch shortly.
+                </div>
+
+                <div id="errorMsg" style="display:none; text-align: center; margin-top: 1.5rem; color: #dc2626;">
+                    Error sending. Please try again.
+                </div>
             </form>
-
-            <div id="successMsg"
-                style="display:none; text-align: center; margin-top: 1.5rem; color: #059669; font-weight: bold;">
-                Request Received! I'll be in touch shortly.
-            </div>
-
-            <div id="errorMsg" style="display:none; text-align: center; margin-top: 1.5rem; color: #dc2626;">
-                Error sending. Please try again.
-            </div>
         </div>
-    </section>
 
-
-    <footer>
-        <p>&copy; 2025 Matheus Godoy. All rights reserved.</p>
-    </footer>
+        <footer>
+            &copy; 2025 matheusgodoy.pro | Specialist in Make.com & n8n
+        </footer>
+    </div>
 
     <script>
-        document.getElementById('homeForm').addEventListener('submit', function (e) {
+        lucide.createIcons();
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
+            const originalText = btn.innerHTML; // Use innerHTML to keep the icon
             const successMsg = document.getElementById('successMsg');
             const errorMsg = document.getElementById('errorMsg');
 
@@ -88,11 +621,16 @@
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
+            // Get selected service
+            const service = document.querySelector('input[name="service"]:checked')?.value || 'not-selected';
+
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                source: 'Home Page - Bold Minimal'
+                service: service,
+                description: document.getElementById('description').value,
+                source: 'Home Page - Bold Minimal',
+                timestamp: new Date().toISOString()
             };
 
             const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook-test/mg-contato';
@@ -115,9 +653,10 @@
                     errorMsg.style.display = 'block';
                 })
                 .finally(() => {
-                    btn.innerText = originalText;
+                    btn.innerHTML = originalText;
                     btn.style.opacity = '1';
                     btn.disabled = false;
+                    lucide.createIcons(); // Re-render icons if needed (though innerHTML restore might keep it, playing safe)
                 });
         });
     </script>
