@@ -653,6 +653,7 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    errorMsg.innerText = 'Error sending: ' + error.message + '. Check console for details.';
                     errorMsg.style.display = 'block';
                 })
                 .finally(() => {
