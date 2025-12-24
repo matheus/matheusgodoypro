@@ -513,7 +513,8 @@
                     <div class="node"><i data-lucide="refresh-cw" size="20"></i></div>
                 </div>
                 <h3>Smart Migration: Slash Costs by 80%</h3>
-                <p>Migration from Zapier to <strong>Make.com</strong>—re-architecting your entire logic for a platform
+                <p>Migration from Zapier to <strong>Make.com</strong> or <strong>N8N</strong>—re-architecting your
+                    entire logic for a platform
                     that is more robust and infinitely more cost-effective.</p>
                 <ul class="feature-list">
                     <li><i data-lucide="check-circle-2"></i> <strong>Workflow Audit:</strong> Identification of “wasted
@@ -600,8 +601,8 @@
 
         <footer>
             &copy; 2025 matheusgodoy.pro | Specialist in
-            <a href="https://make.com">Make.com</a> &
-            <a href="https://zapier.com">Zapier</a>
+            <a href="https://make.com">Make.com</a>,
+            <a href="https://zapier.com">Zapier</a> & <a href="https://n8n.io">n8n</a>
         </footer>
     </div>
 
@@ -631,11 +632,11 @@
                 email: document.getElementById('email').value,
                 service: service,
                 description: document.getElementById('description').value,
-                source: 'Home Page - Bold Minimal',
+                source: 'home_page',
                 timestamp: new Date().toISOString()
             };
 
-            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook-test/mg-contato';
+            const n8nWebhookUrl = 'https://n8n.matheusgodoy.pro/webhook/mg-contato';
 
             fetch(n8nWebhookUrl, {
                 method: 'POST',
